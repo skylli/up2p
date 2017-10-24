@@ -1,0 +1,14 @@
+# 在 ios 下编译生成 up2p 库
+
+## 用到的工具：
+
+    > cmake 
+    > xcodebuild
+    > ios.toolchain.cmake 工具链
+    > lipo
+    
+## 使用
+```shell
+# sh build.sh <cmake 路径>
+sh build.sh   cmake  
+```

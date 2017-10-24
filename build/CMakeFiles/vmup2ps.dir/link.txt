@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/vmup2ps.dir/vm_up2ps.c.o  -o ../bin/vmup2ps -rdynamic ../lib/libup2ps.0.1.1.a ../lib/libulink.0.1.1.so -lpthread -lulfius -ljansson -lorcania -ljwt -lm -Wl,-rpath,/home/derry/gitlab/up2p/lib 

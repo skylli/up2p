@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/vmup2pc.dir/vm_up2pc.c.o  -o ../bin/vmup2pc -rdynamic ../lib/libup2pc.0.1.1.a -lpthread 

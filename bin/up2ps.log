@@ -1,0 +1,359 @@
+2017-10-23 02:02:49 [DEBUG] ulink.c FUNC =ulink_init LINE =49: libulink Build Oct 23 2017 11:07:09
+
+2017-10-23 02:02:49 [ LOG ] ulink.c FUNC =ulink_init LINE =50: link to server : 127.0.0.1,setting my dev id to 0102030405060708
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev 0 0 idx 0 cmd 50
+2017-10-23 02:02:49 [ LOG ] ulink.c FUNC =ulink_open LINE =355: dev and app in diff net,switch to wan mode
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev 0 0 idx 0 cmd 50
+2017-10-23 02:02:49 [ LOG ] ulink.c FUNC =ulink_open LINE =355: dev and app in diff net,switch to wan mode
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev 0 0 idx 0 cmd 50
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:28 magic:84f5ad94 cmd:41
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_update LINE =259: online_update c 4326605a type 2 i = 0
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:28 magic:84f5ad94 cmd:41
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_update LINE =259: online_update c 4326605a type 2 i = 0
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:28 magic:84f5ad94 cmd:41
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_update LINE =259: online_update c 4326605a type 2 i = 0
+2017-10-23 02:02:49 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [ LOG ] ulink.c FUNC =ulink_open LINE =351: dev and app int the same Lan
+
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 1 cmd 1000
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:50 [ LOG ] ulink.c FUNC =ulink_open LINE =395: dev token = 288464a5
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:28 magic:84f5ad94 cmd:41
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =online_update LINE =266: online_update c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:50 [ LOG ] vm_up2pa.c FUNC =ulink_test LINE =144: dev state 2
+2017-10-23 02:02:51 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3060  payload ¯ to dev
+2017-10-23 02:02:51 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [5][1]
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [5][1]
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 2 cmd 1000
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:51 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f2  payload (null) to dev
+2017-10-23 02:02:51 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 3 cmd 1000
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:51 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:51 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =66: >>>>>>> reading file len 412
+2017-10-23 02:02:51 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =67: file :    if( str_equal(pcmd,skill_cmd[SKILL_CMD_ON]) ){
+        // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UART_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_ON;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+
+        ret = s_cmd_send
+2017-10-23 02:02:54 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œ   if( str_equal(pcmd,skill_cmd[SKILL_CMD_ON]) ){
+        // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UART_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_ON;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+
+        ret = s_cmd_send to dev
+2017-10-23 02:02:54 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][1]
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][1]
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 4 cmd 1000
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:54 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 2
+2017-10-23 02:02:54 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : (CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+
+        
+        log_level(U_LOG_DEBUG," SWITCH on ret = %d",ret);
+    }
+    else if(str_equal(pcmd,skill_cmd[SKILL_CMD_OFF])){
+    // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UA
+2017-10-23 02:02:54 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œ(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+
+        
+        log_level(U_LOG_DEBUG," SWITCH on ret = %d",ret);
+    }
+    else if(str_equal(pcmd,skill_cmd[SKILL_CMD_OFF])){
+    // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UA to dev
+2017-10-23 02:02:54 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][2]
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][2]
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 5 cmd 1000
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:54 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:54 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 3
+2017-10-23 02:02:54 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : RT_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_OFF;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+    
+        ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+        //ret = s_cmd_send(CMD_GPIO_WRITE,CMD_GPIO_WRITE_ACK,"0000000C4326605A","000000000
+2017-10-23 02:02:55 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œRT_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_OFF;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+    
+        ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+        //ret = s_cmd_send(CMD_GPIO_WRITE,CMD_GPIO_WRITE_ACK,"0000000C4326605A","000000000 to dev
+2017-10-23 02:02:55 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][3]
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][3]
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 6 cmd 1000
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:55 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:55 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 4
+2017-10-23 02:02:55 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : 0000000",&sio,2,NULL,&rlen);
+        
+        log_level(U_LOG_DEBUG,"SWITCH OFF ret = %d",ret);
+    }else if(str_equal(pcmd,skill_cmd[SKILL_CMD_SETCOLOR])){
+        // get hsl value 
+        HsvColor src_hsb;
+        RgbIColor des_rgb;
+        ret = _resquest_getHsb(req,&src_hsb);
+        if( ret < 0 ){
+            // there no hsv value in payload 
+            log_level(U_LOG_WARN,"get hsb form requ
+2017-10-23 02:02:56 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œ0000000",&sio,2,NULL,&rlen);
+        
+        log_level(U_LOG_DEBUG,"SWITCH OFF ret = %d",ret);
+    }else if(str_equal(pcmd,skill_cmd[SKILL_CMD_SETCOLOR])){
+        // get hsl value 
+        HsvColor src_hsb;
+        RgbIColor des_rgb;
+        ret = _resquest_getHsb(req,&src_hsb);
+        if( ret < 0 ){
+            // there no hsv value in payload 
+            log_level(U_LOG_WARN,"get hsb form requ to dev
+2017-10-23 02:02:56 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][4]
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][4]
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 7 cmd 1000
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:56 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:56 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 5
+2017-10-23 02:02:56 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : et payload failt!!");
+            return ret;
+        }
+        // conver to rgb 
+        ret = _hsb2rgb(&des_rgb,&src_hsb);
+        if(ret < 0){
+            log_level(U_LOG_WARN,"hsb conver to rgb  failt!!");
+            return ret;
+        }
+        // send send control
+        // TODO packet in an functions
+        {
+            u8 sbuff[255];
+            APC_PACKET *apc_packet = (APC_PACKET*)
+2017-10-23 02:02:59 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œet payload failt!!");
+            return ret;
+        }
+        // conver to rgb 
+        ret = _hsb2rgb(&des_rgb,&src_hsb);
+        if(ret < 0){
+            log_level(U_LOG_WARN,"hsb conver to rgb  failt!!");
+            return ret;
+        }
+        // send send control
+        // TODO packet in an functions
+        {
+            u8 sbuff[255];
+            APC_PACKET *apc_packet = (APC_PACKET*) to dev
+2017-10-23 02:02:59 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][5]
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][5]
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 8 cmd 1000
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:02:59 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:02:59 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 6
+2017-10-23 02:02:59 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : sbuff;
+            memset(apc_packet,0,255);
+            apc_packet->version = UART_VERSION;
+            apc_packet->cmd = APC_CMD_COLOR_SET;
+            apc_packet->len = sizeof(RgbIColor);
+            apc_packet->idx = 0;
+            
+            memcpy( apc_packet->payload,&des_rgb,sizeof(RgbIColor));
+            log_level(U_LOG_DEBUG,">>>>>> len = %d   %d",(sizeof(APC_PACKET)+sizeof(RgbIColor)),(4
+2017-10-23 02:03:01 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload œsbuff;
+            memset(apc_packet,0,255);
+            apc_packet->version = UART_VERSION;
+            apc_packet->cmd = APC_CMD_COLOR_SET;
+            apc_packet->len = sizeof(RgbIColor);
+            apc_packet->idx = 0;
+            
+            memcpy( apc_packet->payload,&des_rgb,sizeof(RgbIColor));
+            log_level(U_LOG_DEBUG,">>>>>> len = %d   %d",(sizeof(APC_PACKET)+sizeof(RgbIColor)),(4 to dev
+2017-10-23 02:03:01 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][6]
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][6]
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 9 cmd 1000
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:01 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:03:01 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 7
+2017-10-23 02:03:01 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : +sizeof(RgbIColor)));
+            ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,(sizeof(APC_PACKET)+sizeof(RgbIColor)),NULL,&rlen);
+       }
+2017-10-23 02:03:03 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload Æ to dev
+2017-10-23 02:03:03 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [1][7]
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [1][7]
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx a cmd 1000
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:03:03 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =93: index : 8
+2017-10-23 02:03:03 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =94: file : 
+2017-10-23 02:03:03 [ LOG ] vm_up2pa.c FUNC =_file_transmit LINE =97: read end !!
+2017-10-23 02:03:03 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 30f4  payload  to dev
+2017-10-23 02:03:03 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [5][8]
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [5][8]
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx b cmd 1000
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:03 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:03:11 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload xe to dev
+2017-10-23 02:03:11 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [78][65]
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [78][65]
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx c cmd 1000
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:11 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:03:17 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload M100 to dev
+2017-10-23 02:03:17 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [4d][31]
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [4d][31]
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx d cmd 1000
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:17 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:03:21 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload M120 to dev
+2017-10-23 02:03:21 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [4d][31]
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [4d][31]
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx e cmd 1000
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:03:21 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:21 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload M123123123 to dev
+2017-10-23 02:04:21 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [4d][31]
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [4d][31]
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx f cmd 1000
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:21 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:24 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload asdfasdfa to dev
+2017-10-23 02:04:24 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:24 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [61][73]
+2017-10-23 02:04:24 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [61][73]
+2017-10-23 02:04:24 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:24 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 10 cmd 1000
+2017-10-23 02:04:25 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:25 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 10 cmd 1000
+2017-10-23 02:04:25 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:25 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:25 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:28 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload fcvwedd to dev
+2017-10-23 02:04:28 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [66][63]
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [66][63]
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 11 cmd 1000
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:28 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:31 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload afasdfasd to dev
+2017-10-23 02:04:31 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [61][66]
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [61][66]
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 12 cmd 1000
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:31 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:34 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload asdf to dev
+2017-10-23 02:04:34 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [61][73]
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [61][73]
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 13 cmd 1000
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:34 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001
+2017-10-23 02:04:37 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =441: send 3000  payload asdf to dev
+2017-10-23 02:04:37 [ LOG ] ulink.c FUNC =ulink_cmd_send LINE =443: Target dev id is c 4326605a ,session toke 288464a5 ,session key 0 0
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =820: raw data param [61][73]
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =up2pa_send_data_cmd LINE =821: raw data data payload [61][73]
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =online_find LINE =290: online_find c 4326605a type 2 i = 0
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =send_packet LINE =357: send dev c 4326605a idx 14 cmd 1000
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =recv_proc LINE =436: recv from:192.168.2.225 len:44 magic:84f5ad94 cmd:1001
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =packetrecv_add LINE =182: packetrecv_add c 4326605a
+
+2017-10-23 02:04:37 [DEBUG] up2pa.c FUNC =recv_cmd LINE =411: recv cmd = 1001

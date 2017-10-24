@@ -1,0 +1,62 @@
+   if( str_equal(pcmd,skill_cmd[SKILL_CMD_ON]) ){
+        // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UART_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_ON;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+
+        ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+
+        
+        log_level(U_LOG_DEBUG," SWITCH on ret = %d",ret);
+    }
+    else if(str_equal(pcmd,skill_cmd[SKILL_CMD_OFF])){
+    // todo 
+        u8 sbuff[255];
+        APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+        memset(apc_packet,0,255);
+        apc_packet->version = UART_VERSION;
+        apc_packet->cmd = APC_CMD_SOCKET_OFF;
+        apc_packet->len = 0;
+        apc_packet->idx = 0;
+        log_level(U_LOG_DEBUG,">>>>>> SWITCH OFF");
+    
+        ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,sizeof(APC_PACKET),NULL,&rlen);
+        //ret = s_cmd_send(CMD_GPIO_WRITE,CMD_GPIO_WRITE_ACK,"0000000C4326605A","0000000000000000",&sio,2,NULL,&rlen);
+        
+        log_level(U_LOG_DEBUG,"SWITCH OFF ret = %d",ret);
+    }else if(str_equal(pcmd,skill_cmd[SKILL_CMD_SETCOLOR])){
+        // get hsl value 
+        HsvColor src_hsb;
+        RgbIColor des_rgb;
+        ret = _resquest_getHsb(req,&src_hsb);
+        if( ret < 0 ){
+            // there no hsv value in payload 
+            log_level(U_LOG_WARN,"get hsb form requet payload failt!!");
+            return ret;
+        }
+        // conver to rgb 
+        ret = _hsb2rgb(&des_rgb,&src_hsb);
+        if(ret < 0){
+            log_level(U_LOG_WARN,"hsb conver to rgb  failt!!");
+            return ret;
+        }
+        // send send control
+        // TODO packet in an functions
+        {
+            u8 sbuff[255];
+            APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
+            memset(apc_packet,0,255);
+            apc_packet->version = UART_VERSION;
+            apc_packet->cmd = APC_CMD_COLOR_SET;
+            apc_packet->len = sizeof(RgbIColor);
+            apc_packet->idx = 0;
+            
+            memcpy( apc_packet->payload,&des_rgb,sizeof(RgbIColor));
+            log_level(U_LOG_DEBUG,">>>>>> len = %d   %d",(sizeof(APC_PACKET)+sizeof(RgbIColor)),(4+sizeof(RgbIColor)));
+            ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,(sizeof(APC_PACKET)+sizeof(RgbIColor)),NULL,&rlen);
+       }

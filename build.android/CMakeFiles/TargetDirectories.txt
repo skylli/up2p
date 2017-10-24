@@ -1,0 +1,4 @@
+/home/derry/prj/up2p/build.android/CMakeFiles/edit_cache.dir
+/home/derry/prj/up2p/build.android/CMakeFiles/rebuild_cache.dir
+/home/derry/prj/up2p/build.android/CMakeFiles/STATIC.dir
+/home/derry/prj/up2p/build.android/CMakeFiles/ulink_andr.0.1.1.dir

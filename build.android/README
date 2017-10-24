@@ -1,0 +1,101 @@
+# up2p jni  库编译说明
+------------------------------
+## 工程结构说明
+
+    > 把 up2p 源码放置到改路径 prj\gen-libs\src\main\cpp\up2p
+    > 编译配置
+        > 修改 D:\AndroidStudioProjects\hello-libs\settings.gradle 文件添加    include ':gen-libs'，使 AS 进去  gen-libs 文件编译。
+        > 在文件 D:\AndroidStudioProjects\hello-libs\app\build.gradle 中添加 compile project(':gen-libs')  编译  gen-lib 库
+    
+    > 文件 D:\AndroidStudioProjects\hello-libs\distribution\ulink 为生成的 android 库存放路径。
+
+>>
+### 
+## jni 说明
+
+    > 把文件  ulink_jni.c 以及  CmakeLists.txt  放置在 prj\app\src\main\cpp  路径下。
+    > 把 java 代码放置道 prj\app\src\main\java\com\ulink 路径下。
+    > app  gradle 配置如下, prj\app\build.gradle 文件如下：
+```java
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.2'
+
+    defaultConfig {
+        applicationId = 'com.example.hellolibs'
+        minSdkVersion 13
+        targetSdkVersion 25
+        versionCode = 1
+        versionName = '1.0'
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_PLATFORM=android-13',
+                        '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            // let gradle pack the shared library into apk
+            //jniLibs.srcDirs = ['../distribution/gperf/lib']
+            jniLibs.srcDirs = ['../distribution/ulink/lib']
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path 'src/main/cpp/CMakeLists.txt'
+        }
+    }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    // uncomment out this one to generate lib binaries,
+    // and also uncommented out the one in settings.gradle
+    // after lib is generated, just comment them out again
+    compile project(':gen-libs')
+}
+
+```
+    > 权限配置， prj\app\src\main\AndroidManifest.xml  文件如下：
+
+```html
+<manifest ...
+    ...
+       <activity android:name="com.ulink.demo.MainActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> 
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> 
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+</manifest>
+
+```
+    
+##     
