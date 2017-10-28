@@ -52,7 +52,7 @@ user_interface.h
 up2p.h
 ../src/up2pc/up2p.h
 
-/home/derry/gitlab/up2p/vm_up2pc.c
+/home/derry/github/up2p/vm_up2pc.c
 up2pc.h
-/home/derry/gitlab/up2p/up2pc.h
+/home/derry/github/up2p/up2pc.h
 

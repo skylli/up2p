@@ -14,6 +14,8 @@
 *******************************************************************************/
 #ifndef _up2ps_h_
 #define _up2ps_h_
+#include "up2p.h"
+#include "util.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,8 +23,6 @@ extern "C" {
 
 #define MAX_USER 65536
 
-#include "up2p.h"
-#include "util.h"
 
 typedef struct{
 	u32 dev0;		// 设备名

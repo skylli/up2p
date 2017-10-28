@@ -28,8 +28,9 @@ int udp_soket_init(u16 lport)
     sin.sin_port = htons(lport);
     socket_main = socket(AF_INET,SOCK_DGRAM, 0);
 
-    if(socket_main <= 0)
+    if(socket_main <= 0){
         return -1;
+        }
     
     bind(socket_main, (SOCKADDR*)&sin, sizeof(SOCKADDR));
     
@@ -52,13 +53,15 @@ int up2pc_udp_recv( char *recv_data,int buffer_size, int *plen, UDP_INFO *info)
             w_dump("udp receive : ",recv_data,size);
         }
             
-
         info->sip = sin_recv.sin_addr.s_addr;
         info->sport = sin_recv.sin_port;
         info->dip = 0;   // 实际上用不到这两个值
         info->dport = 0;
         *plen = size;
-        
+        #if 1
+        if(size>0)
+            w_dump("udp receive : ",recv_data,size);
+        #endif
         return size ;
     }
     return 0;

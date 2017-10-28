@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC
 
 C_DEFINES = -Dulink_0_1_1_EXPORTS
 
-C_INCLUDES = -I/home/derry/gitlab/up2p/include -I/home/derry/gitlab/up2p/src/up2pc -I/home/derry/gitlab/up2p/src/crypt -I/home/derry/gitlab/up2p/src/up2ps -I/home/derry/gitlab/up2p/src/up2pa 
+C_INCLUDES = -I/home/derry/github/up2p/include -I/home/derry/github/up2p/src/protocol -I/home/derry/github/up2p/src/up2pc -I/home/derry/github/up2p/src/util -I/home/derry/github/up2p/src/rest_api -I/home/derry/github/up2p/src/crypt -I/home/derry/github/up2p/src/up2ps -I/home/derry/github/up2p/src/up2pa 
 

@@ -17,6 +17,7 @@ CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../include/config.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../include/ulink.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../include/up2p.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../include/util.h
+CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../src/util/observer_queue.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../src/up2pa/ulink.c
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ulink.c.o: ../src/up2pa/up2pa.h
 
@@ -24,12 +25,20 @@ CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../include/config.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../include/up2p.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../include/util.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../src/crypt/up2p_crypt.h
+CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../src/util/observer_queue.h
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../src/up2pa/up2pa.c
 CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o: ../src/up2pa/up2pa.h
 
 CMakeFiles/ulink_a.0.1.1.dir/src/util/debug.c.o: ../include/config.h
 CMakeFiles/ulink_a.0.1.1.dir/src/util/debug.c.o: ../include/up2p.h
 CMakeFiles/ulink_a.0.1.1.dir/src/util/debug.c.o: ../src/util/debug.c
+
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../include/config.h
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../include/up2p.h
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../include/util.h
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../include/utlist.h
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../src/util/observer_queue.c
+CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o: ../src/util/observer_queue.h
 
 CMakeFiles/ulink_a.0.1.1.dir/src/util/util.c.o: ../include/config.h
 CMakeFiles/ulink_a.0.1.1.dir/src/util/util.c.o: ../include/up2p.h

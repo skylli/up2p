@@ -360,7 +360,7 @@ int s_dev_open(u32 dev0,u32 dev1,u32 key0, u32 key1,u32 *p_token)
     memset(sbuf,0,MAX_NET_PACKAGE_SIZE);
     // is dev online.
     if( !user_find(dev0,dev1)){
-        log_level(U_LOG_INFO,"dev %x %x offline");
+        log_level(U_LOG_INFO,"dev %x %x offline",dev0,dev1);
         return U_ERROR_LIINKDEV;
     }
     // update session token

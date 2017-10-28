@@ -51,6 +51,8 @@ user_interface.h
 ../include/util.h
 up2p.h
 ../include/up2p.h
+observer_queue.h
+../include/observer_queue.h
 
 ../src/up2ps/apc_color_conversions.h
 stdbool.h
@@ -74,7 +76,11 @@ util.h
 
 ../src/up2ps/up2ps_skill.h
 
-/home/derry/gitlab/up2p/vm_up2ps.c
+../src/util/observer_queue.h
+up2p.h
+../src/util/up2p.h
+
+/home/derry/github/up2p/vm_up2ps.c
 pthread.h
 -
 arpa/inet.h
@@ -84,13 +90,13 @@ jansson.h
 ulfius.h
 -
 config.h
-/home/derry/gitlab/up2p/config.h
+/home/derry/github/up2p/config.h
 up2ps.h
-/home/derry/gitlab/up2p/up2ps.h
+/home/derry/github/up2p/up2ps.h
 up2ps_skill.h
-/home/derry/gitlab/up2p/up2ps_skill.h
+/home/derry/github/up2p/up2ps_skill.h
 up2p_oauth2.h
-/home/derry/gitlab/up2p/up2p_oauth2.h
+/home/derry/github/up2p/up2p_oauth2.h
 apc_color_conversions.h
-/home/derry/gitlab/up2p/apc_color_conversions.h
+/home/derry/github/up2p/apc_color_conversions.h
 

@@ -27,7 +27,10 @@
 // type:value request 
 int restApi_handle_dev_type_value_request (const struct _u_request * request, struct _u_response * response, void * user_data);
 
-
 /*****设备端提供：  封装设备控制指令，并发送到设备处理***********/
+
+
+/********** 单元测试 *******************************/
+void restApi_unittest_rest_api(void);
 
 #endif //  end _up2ps_rest_api_h_

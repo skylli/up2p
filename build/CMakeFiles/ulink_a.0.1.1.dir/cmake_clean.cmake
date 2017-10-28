@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/ctrl.c.o"
   "CMakeFiles/ulink_a.0.1.1.dir/src/up2pa/up2pa.c.o"
   "CMakeFiles/ulink_a.0.1.1.dir/src/util/util.c.o"
+  "CMakeFiles/ulink_a.0.1.1.dir/src/util/observer_queue.c.o"
   "CMakeFiles/ulink_a.0.1.1.dir/src/util/debug.c.o"
   "CMakeFiles/ulink_a.0.1.1.dir/src/crypt/aes.c.o"
   "CMakeFiles/ulink_a.0.1.1.dir/src/crypt/up2p_crypt.c.o"

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/derry/gitlab/up2p
+CMAKE_SOURCE_DIR = /home/derry/github/up2p
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/derry/gitlab/up2p/build
+CMAKE_BINARY_DIR = /home/derry/github/up2p/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/up2ps.0.1.1.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/up2ps.0.1.1.dir/flags.make
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o: ../src/up2ps/up2p_oauth2.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o   -c /home/derry/gitlab/up2p/src/up2ps/up2p_oauth2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o   -c /home/derry/github/up2p/src/up2ps/up2p_oauth2.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/up2ps/up2p_oauth2.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/up2ps/up2p_oauth2.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/up2ps/up2p_oauth2.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/up2ps/up2p_oauth2.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2p_oauth2.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../src/up2ps/up2ps.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o   -c /home/derry/gitlab/up2p/src/up2ps/up2ps.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o   -c /home/derry/github/up2p/src/up2ps/up2ps.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/up2ps/up2ps.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/up2ps/up2ps.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/up2ps/up2ps.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/up2ps/up2ps.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o.provides.build: CMakeFiles/up2ps.
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o: ../src/up2ps/apc_color_conversions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o   -c /home/derry/gitlab/up2p/src/up2ps/apc_color_conversions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o   -c /home/derry/github/up2p/src/up2ps/apc_color_conversions.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/up2ps/apc_color_conversions.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/up2ps/apc_color_conversions.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/up2ps/apc_color_conversions.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/up2ps/apc_color_conversions.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_color_conversions.c.o.provides.build: C
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../src/up2ps/up2ps_ctrl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o   -c /home/derry/gitlab/up2p/src/up2ps/up2ps_ctrl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o   -c /home/derry/github/up2p/src/up2ps/up2ps_ctrl.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/up2ps/up2ps_ctrl.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/up2ps/up2ps_ctrl.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/up2ps/up2ps_ctrl.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/up2ps/up2ps_ctrl.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o.provides.build: CMakeFiles/u
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/up2ps/up2ps_skill.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o   -c /home/derry/gitlab/up2p/src/up2ps/up2ps_skill.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o   -c /home/derry/github/up2p/src/up2ps/up2ps_skill.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/up2ps/up2ps_skill.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/up2ps/up2ps_skill.c > CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/up2ps/up2ps_skill.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/up2ps/up2ps_skill.c -o CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o.provides.build: CMakeFiles/
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o: ../src/util/util.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o   -c /home/derry/gitlab/up2p/src/util/util.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o   -c /home/derry/github/up2p/src/util/util.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/util/util.c > CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/util/util.c > CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/util/util.c -o CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/util/util.c -o CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o.requires:
 
@@ -201,18 +201,42 @@ CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o.provides: CMakeFiles/up2ps.0.1.1.di
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o.provides.build: CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o
 
 
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../src/util/observer_queue.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o   -c /home/derry/github/up2p/src/util/observer_queue.c
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/util/observer_queue.c > CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.i
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/util/observer_queue.c -o CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.s
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.requires:
+
+.PHONY : CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.requires
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.provides: CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.requires
+	$(MAKE) -f CMakeFiles/up2ps.0.1.1.dir/build.make CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.provides.build
+.PHONY : CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.provides
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.provides.build: CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o
+
+
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o: CMakeFiles/up2ps.0.1.1.dir/flags.make
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o: ../src/util/debug.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o   -c /home/derry/gitlab/up2p/src/util/debug.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o   -c /home/derry/github/up2p/src/util/debug.c
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/gitlab/up2p/src/util/debug.c > CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/derry/github/up2p/src/util/debug.c > CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.i
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/gitlab/up2p/src/util/debug.c -o CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/derry/github/up2p/src/util/debug.c -o CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.s
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o.requires:
 
@@ -233,6 +257,7 @@ up2ps_0_1_1_OBJECTS = \
 "CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o" \
 "CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o" \
 "CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o" \
+"CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o" \
 "CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o"
 
 # External object files for target up2ps.0.1.1
@@ -244,10 +269,11 @@ up2ps_0_1_1_EXTERNAL_OBJECTS =
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o
+../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/build.make
 ../lib/libup2ps.0.1.1.a: CMakeFiles/up2ps.0.1.1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/derry/gitlab/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library ../lib/libup2ps.0.1.1.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/derry/github/up2p/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C static library ../lib/libup2ps.0.1.1.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/up2ps.0.1.1.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/up2ps.0.1.1.dir/link.txt --verbose=$(VERBOSE)
 
@@ -262,6 +288,7 @@ CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/up2ps/apc_co
 CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o.requires
 CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o.requires
 CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o.requires
+CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o.requires
 CMakeFiles/up2ps.0.1.1.dir/requires: CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o.requires
 
 .PHONY : CMakeFiles/up2ps.0.1.1.dir/requires
@@ -271,6 +298,6 @@ CMakeFiles/up2ps.0.1.1.dir/clean:
 .PHONY : CMakeFiles/up2ps.0.1.1.dir/clean
 
 CMakeFiles/up2ps.0.1.1.dir/depend:
-	cd /home/derry/gitlab/up2p/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/derry/gitlab/up2p /home/derry/gitlab/up2p /home/derry/gitlab/up2p/build /home/derry/gitlab/up2p/build /home/derry/gitlab/up2p/build/CMakeFiles/up2ps.0.1.1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/derry/github/up2p/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/derry/github/up2p /home/derry/github/up2p /home/derry/github/up2p/build /home/derry/github/up2p/build /home/derry/github/up2p/build/CMakeFiles/up2ps.0.1.1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/up2ps.0.1.1.dir/depend
 

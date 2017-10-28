@@ -13,6 +13,9 @@ set(PRJ_VERSION_PATCH 1)
 set(up2pc "up2pc.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
 set(up2ps "up2ps.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
 
+set(restapi "restapi.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
+set(protocol "protocol.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
+
 set(ulink "ulink.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
 set(ulink_a "ulink_a.${PRJ_VERSION_MAJOR}.${PRJ_VERSION_MINOR}.${PRJ_VERSION_PATCH}")
 
@@ -39,14 +42,17 @@ foreach (_headerFile ${Foo_HEADERS})
     list (APPEND Foo_INCLUDE_DIRS ${_dir})
 endforeach()
 list(REMOVE_DUPLICATES Foo_INCLUDE_DIRS)
+
 # 包含工程所有的头文件
 include_directories(${Foo_INCLUDE_DIRS} "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 FILE(GLOB LIB_CRYPT_SOURCES ${SRC_PATH}/crypt/*.c)
 FILE(GLOB LIB_UP2PC_SOURCES ${SRC_PATH}/up2pc/*.c)
 FILE(GLOB LIB_UP2PS_SOURCES ${SRC_PATH}/up2ps/*.c)
+FILE(GLOB LIB_RESTAPI_SOURCES ${SRC_PATH}/rest_api/*.c)
 FILE(GLOB LIB_UTIL_SOURCES ${SRC_PATH}/util/*.c)
 FILE(GLOB LIB_UP2PA_SOURCES ${SRC_PATH}/up2pa/*.c)
+FILE(GLOB LIB_PROTOCOL_SOURCES ${SRC_PATH}/protocol/*.c)
 
 #debug
 set(CMAKE_BUILD_TYPE "Debug")
@@ -107,7 +113,11 @@ ADD_LIBRARY(${up2ps} STATIC ${LIB_UP2PS_SOURCES} ${LIB_UTIL_SOURCES})
 #制作up2pa 库
 ADD_LIBRARY(${ulink} SHARED ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
 ADD_LIBRARY(${ulink_a} STATIC ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
+# 制作 protocol 库
+ADD_LIBRARY(${protocol} STATIC ${LIB_PROTOCOL_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES})
 
+# 制作 restapi 的库
+ADD_LIBRARY(${restapi} STATIC ${LIB_RESTAPI_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES})
 #LINK_DIRECTORIES("${PROJECT_SOURCE_DIR}")
 
 # 指定生成目标 
@@ -117,5 +127,9 @@ add_executable(vmup2ps vm_up2ps.c)
 target_link_libraries(vmup2ps ${up2ps} ${ulink} pthread ulfius jansson orcania jwt m)
 add_executable(vmup2pa vm_up2pa.c)
 target_link_libraries(vmup2pa ${ulink} pthread)
+
+add_executable(vmup2pr vm_up2pr.c)
+target_link_libraries(vmup2pr ${restapi} ${protocol} pthread ulfius jansson orcania jwt m)
+
 #ENDIF(APPLE)
 ENDIF()

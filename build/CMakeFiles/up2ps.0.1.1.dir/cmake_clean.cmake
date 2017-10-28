@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o"
   "CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o"
   "CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o"
+  "CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o"
   "CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o"
   "../lib/libup2ps.0.1.1.pdb"
   "../lib/libup2ps.0.1.1.a"

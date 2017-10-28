@@ -53,40 +53,48 @@ user_interface.h
 ../include/util.h
 up2p.h
 ../include/up2p.h
+observer_queue.h
+../include/observer_queue.h
+
+../include/utlist.h
 
 ../src/crypt/up2p_crypt.h
 
 ../src/up2ps/up2ps_ctrl.h
 
-/home/derry/gitlab/up2p/src/crypt/aes.c
-
-/home/derry/gitlab/up2p/src/crypt/aes.h
-
-/home/derry/gitlab/up2p/src/crypt/up2p_crypt.c
+../src/util/observer_queue.h
 up2p.h
-/home/derry/gitlab/up2p/src/crypt/up2p.h
+../src/util/up2p.h
+
+/home/derry/github/up2p/src/crypt/aes.c
+
+/home/derry/github/up2p/src/crypt/aes.h
+
+/home/derry/github/up2p/src/crypt/up2p_crypt.c
+up2p.h
+/home/derry/github/up2p/src/crypt/up2p.h
 aes.h
-/home/derry/gitlab/up2p/src/crypt/aes.h
+/home/derry/github/up2p/src/crypt/aes.h
 
-/home/derry/gitlab/up2p/src/up2pa/ctrl.c
+/home/derry/github/up2p/src/up2pa/ctrl.c
 up2p.h
-/home/derry/gitlab/up2p/src/up2pa/up2p.h
+/home/derry/github/up2p/src/up2pa/up2p.h
 up2ps_ctrl.h
-/home/derry/gitlab/up2p/src/up2pa/up2ps_ctrl.h
+/home/derry/github/up2p/src/up2pa/up2ps_ctrl.h
 
-/home/derry/gitlab/up2p/src/up2pa/ulink.c
+/home/derry/github/up2p/src/up2pa/ulink.c
 up2pa.h
-/home/derry/gitlab/up2p/src/up2pa/up2pa.h
+/home/derry/github/up2p/src/up2pa/up2pa.h
 ulink.h
-/home/derry/gitlab/up2p/src/up2pa/ulink.h
+/home/derry/github/up2p/src/up2pa/ulink.h
 sys/time.h
 -
 
-/home/derry/gitlab/up2p/src/up2pa/up2pa.c
+/home/derry/github/up2p/src/up2pa/up2pa.c
 up2pa.h
-/home/derry/gitlab/up2p/src/up2pa/up2pa.h
+/home/derry/github/up2p/src/up2pa/up2pa.h
 up2p_crypt.h
-/home/derry/gitlab/up2p/src/up2pa/up2p_crypt.h
+/home/derry/github/up2p/src/up2pa/up2p_crypt.h
 errno.h
 -
 sys/ioctl.h
@@ -106,17 +114,35 @@ arpa/inet.h
 android/log.h
 -
 
-/home/derry/gitlab/up2p/src/up2pa/up2pa.h
+/home/derry/github/up2p/src/up2pa/up2pa.h
 up2p.h
-/home/derry/gitlab/up2p/src/up2pa/up2p.h
+/home/derry/github/up2p/src/up2pa/up2p.h
 util.h
-/home/derry/gitlab/up2p/src/up2pa/util.h
+/home/derry/github/up2p/src/up2pa/util.h
 
-/home/derry/gitlab/up2p/src/util/debug.c
+/home/derry/github/up2p/src/util/debug.c
 up2p.h
-/home/derry/gitlab/up2p/src/util/up2p.h
+/home/derry/github/up2p/src/util/up2p.h
 
-/home/derry/gitlab/up2p/src/util/util.c
+/home/derry/github/up2p/src/util/observer_queue.c
+observer_queue.h
+/home/derry/github/up2p/src/util/observer_queue.h
+util.h
+/home/derry/github/up2p/src/util/util.h
+sys/time.h
+-
+unistd.h
+-
+utlist.h
+/home/derry/github/up2p/src/util/utlist.h
+pthread.h
+-
+
+/home/derry/github/up2p/src/util/observer_queue.h
 up2p.h
-/home/derry/gitlab/up2p/src/util/up2p.h
+/home/derry/github/up2p/src/util/up2p.h
+
+/home/derry/github/up2p/src/util/util.c
+up2p.h
+/home/derry/github/up2p/src/util/up2p.h
 

@@ -11,12 +11,14 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../include/config.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../include/ulink.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../include/up2p.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../include/util.h
+CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../src/util/observer_queue.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../src/up2ps/up2ps.c
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps.c.o: ../src/up2ps/up2ps.h
 
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../include/config.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../include/up2p.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../include/util.h
+CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../src/util/observer_queue.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../src/up2ps/up2ps.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../src/up2ps/up2ps_ctrl.c
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_ctrl.c.o: ../src/up2ps/up2ps_ctrl.h
@@ -25,6 +27,7 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../include/application.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../include/config.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../include/up2p.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../include/util.h
+CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/util/observer_queue.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/up2ps/apc_color_conversions.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/up2ps/up2ps.h
 CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/up2ps/up2ps_skill.c
@@ -33,6 +36,13 @@ CMakeFiles/up2ps.0.1.1.dir/src/up2ps/up2ps_skill.c.o: ../src/up2ps/up2ps_skill.h
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o: ../include/config.h
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o: ../include/up2p.h
 CMakeFiles/up2ps.0.1.1.dir/src/util/debug.c.o: ../src/util/debug.c
+
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../include/config.h
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../include/up2p.h
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../include/util.h
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../include/utlist.h
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../src/util/observer_queue.c
+CMakeFiles/up2ps.0.1.1.dir/src/util/observer_queue.c.o: ../src/util/observer_queue.h
 
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o: ../include/config.h
 CMakeFiles/up2ps.0.1.1.dir/src/util/util.c.o: ../include/up2p.h

@@ -261,7 +261,7 @@ typedef enum U_ONLINE_STATE_T{
 #define U_LOG_ERROR  4
 #define U_LOG_NONE  5
 
-#define DEBUG_LEVEL U_LOG_DEBUG
+#define DEBUG_LEVEL U_LOG_ALL
 
 /********************************log thing***********************************************************/
 #define LOG_INTIP2STR(a)  do{\

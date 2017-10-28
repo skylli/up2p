@@ -8,5 +8,6 @@ CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../src/up2ps/apc_color_conversions.h
 CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../src/up2ps/up2p_oauth2.h
 CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../src/up2ps/up2ps.h
 CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../src/up2ps/up2ps_skill.h
+CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../src/util/observer_queue.h
 CMakeFiles/vmup2ps.dir/vm_up2ps.c.o: ../vm_up2ps.c
 

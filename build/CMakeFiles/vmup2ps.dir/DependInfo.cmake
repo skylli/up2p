@@ -4,14 +4,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/derry/gitlab/up2p/vm_up2ps.c" "/home/derry/gitlab/up2p/build/CMakeFiles/vmup2ps.dir/vm_up2ps.c.o"
+  "/home/derry/github/up2p/vm_up2ps.c" "/home/derry/github/up2p/build/CMakeFiles/vmup2ps.dir/vm_up2ps.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
+  "../src/protocol"
   "../src/up2pc"
+  "../src/util"
+  "../src/rest_api"
   "../src/crypt"
   "../src/up2ps"
   "../src/up2pa"
@@ -19,8 +22,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/derry/gitlab/up2p/build/CMakeFiles/up2ps.0.1.1.dir/DependInfo.cmake"
-  "/home/derry/gitlab/up2p/build/CMakeFiles/ulink.0.1.1.dir/DependInfo.cmake"
+  "/home/derry/github/up2p/build/CMakeFiles/up2ps.0.1.1.dir/DependInfo.cmake"
+  "/home/derry/github/up2p/build/CMakeFiles/ulink.0.1.1.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

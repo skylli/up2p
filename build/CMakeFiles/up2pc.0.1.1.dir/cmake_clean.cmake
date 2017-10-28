@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/up2pc.0.1.1.dir/src/up2pc/up2p_posix.c.o"
   "CMakeFiles/up2pc.0.1.1.dir/src/up2pc/up2pc.c.o"
   "CMakeFiles/up2pc.0.1.1.dir/src/util/util.c.o"
+  "CMakeFiles/up2pc.0.1.1.dir/src/util/observer_queue.c.o"
   "CMakeFiles/up2pc.0.1.1.dir/src/util/debug.c.o"
   "../lib/libup2pc.0.1.1.pdb"
   "../lib/libup2pc.0.1.1.a"

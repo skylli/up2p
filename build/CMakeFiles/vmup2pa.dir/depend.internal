@@ -7,4 +7,5 @@ CMakeFiles/vmup2pa.dir/vm_up2pa.c.o
  ../include/up2p.h
  ../include/util.h
  ../src/up2pa/up2pa.h
- /home/derry/gitlab/up2p/vm_up2pa.c
+ ../src/util/observer_queue.h
+ /home/derry/github/up2p/vm_up2pa.c

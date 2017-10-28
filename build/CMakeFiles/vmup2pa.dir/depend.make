@@ -6,5 +6,6 @@ CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../include/ulink.h
 CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../include/up2p.h
 CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../include/util.h
 CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../src/up2pa/up2pa.h
+CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../src/util/observer_queue.h
 CMakeFiles/vmup2pa.dir/vm_up2pa.c.o: ../vm_up2pa.c
 

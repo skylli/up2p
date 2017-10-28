@@ -16,6 +16,7 @@
 
 #define _util_h_
 #include "up2p.h"
+#include "observer_queue.h"
 
 
 #define __LOGFILENAME__ (strrchr(__FILE__, '/')? strrchr(__FILE__, '/') + 1 : __FILE__) 
@@ -42,5 +43,13 @@ int up2p_log(const char *tag,const char *file,const char* func,int line,const ch
 #define log_debug(format,...) log_level(U_LOG_DEBUG,format,##__VA_ARGS__)
 
 #define str_equal(ps1,ps2) (( strlen(ps1) == strlen(ps2) && strcmp(ps1,ps2) == 0)?1:0)
+#define _TM_MSEC(sec,usec)  (sec*1000 + usec/1000)
+
+
+
+// util  tool
+void *umalloc(size_t size);
+void ufree(void *ptr);
+
 
 #endif

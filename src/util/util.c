@@ -36,4 +36,20 @@ int ascii_to_2u32(const char *devid, u32 *dev0, u32 *dev1)
     return 0;
 }
 
+void *umalloc(size_t size){
+    void *p_ret = NULL;
+    if(size == 0)
+        return 0;
+    
+    p_ret = malloc(size);
+    if(p_ret )
+        memset(p_ret,0,size);
+    return p_ret;
+}
+
+void ufree(void *ptr){
+    if( !ptr)
+        return ;
+    free(ptr);
+}
 

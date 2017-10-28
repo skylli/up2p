@@ -9,4 +9,5 @@ CMakeFiles/vmup2ps.dir/vm_up2ps.c.o
  ../src/up2ps/up2p_oauth2.h
  ../src/up2ps/up2ps.h
  ../src/up2ps/up2ps_skill.h
- /home/derry/gitlab/up2p/vm_up2ps.c
+ ../src/util/observer_queue.h
+ /home/derry/github/up2p/vm_up2ps.c
