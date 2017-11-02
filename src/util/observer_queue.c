@@ -50,8 +50,8 @@ int observer_list_lock(void){
         log_level(U_LOG_ERROR, "lock list error");
         return -1;
     }
-    return 0;
 
+    return 0;
 }
 void observer_list_unlock(void){
     pthread_mutex_unlock(&mutex_list);
@@ -61,7 +61,7 @@ void *observer_add(u8 envent,void *p_user,void *p_user_data){
 
     if(list_ct.el_count > list_ct.el_max){
         
-        log_level(U_LOG_WARN,"observer queue was overflow!");
+        log_level(U_LOG_WARN," count %d max count %x ,observer queue was overflow!",list_ct.el_count,list_ct.el_max);
         return NULL;
     }
     
@@ -78,14 +78,13 @@ void *observer_add(u8 envent,void *p_user,void *p_user_data){
     el_new->p_user_data = p_user_data;
     el_new->p_user = p_user;
 
-    //log_level(U_LOG_DEBUG, "add address %p  old add %p",el_new->p_user_data,p_user_data);
+    //log_level(U_LOG_DEBUG, " p_user  %p add  %p",p_user,el_new->p_user);
     // unlock
     if(pthread_mutex_lock(&mutex_list) !=0){
         log_level(U_LOG_ERROR, "lock list error");
         free(el_new);
         return NULL;
     }
-    
     
     LL_APPEND(list_ct.p_head,el_new);
     list_ct.el_count++;

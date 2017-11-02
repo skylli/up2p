@@ -12,10 +12,12 @@ CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o
  ../include/config.h
  ../include/up2p.h
  ../include/util.h
- ../src/up2ps/up2ps.h
+ ../src/protocol/protocol_up2p.h
+ ../src/up2ps/up2p_oauth2.h
  ../src/util/observer_queue.h
  /home/derry/github/up2p/src/rest_api/rest_api.c
  /home/derry/github/up2p/src/rest_api/rest_api.h
+ /home/derry/github/up2p/src/rest_api/vlink.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/u_poxis.c.o
  ../include/config.h
  ../include/up2p.h

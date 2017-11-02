@@ -21,7 +21,7 @@ int ascii_to_2u32(const char *devid, u32 *dev0, u32 *dev1)
     char tmp1[32];
     int i;
 
-    if(strlen(devid) != 16)
+    if(!devid  || !dev0 || !dev1 || strlen(devid) != 16)
         return -1;
 
     memset(tmp0, 0, sizeof(tmp0));

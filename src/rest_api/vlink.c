@@ -72,31 +72,39 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
     // mark current time .
     gettimeofday(&current_tm,NULL);
     gettimeofday(&pre_tm,NULL);
-    gettimeofday(&star_tm,NULL);    
+    gettimeofday(&star_tm,NULL);
 
     //star send package.
     ret = socket_udp_send(p_link->fd,p_pack,len_send,&p_link->info);
     timeout = (timeout_ms > 0)? timeout_ms:MAX_RERANSMITS_TIMEOUT_ms;
 
     do{
-        
-    // check response.
+     // 1.检查事件是否发生。
+     // 2. 接收包的目标地址 是否匹配
+     // 3. 匹配则有收到回包摘掉改节点，不再接收。
+     // 4. 获取接收包的 payload.
+     // 5. 释放接收的内容.
+
+     // 1.检查事件是否发生。
         if(observer_event_happent(p_node_event,EVENT_RECV_DATA) && package_recv.len  && package_recv.p_package){
             // receive buffer.
-            log_level(U_LOG_INFO, "receive response data");
-            // check it 
-            if(protocol_up2p_filter(p_link,package_recv.p_package,package_recv.len)){
+            // 2. 接收包的目标地址 是否匹配
+            if(protocol_up2p_filter( &p_link->session,package_recv.p_package,package_recv.len)){
                 log_level(U_LOG_ERROR,"source device id was not match");
                 // drop it.
                 ufree(package_recv.p_package);
                 package_recv.p_package = NULL;
                 }
-            // distpathch it 
-            p_data = protocol_up2p_data_alloc(p_link,&len_data,package_recv.p_package,package_recv.len);
+            // 3. 匹配则有收到回包摘掉改节点，不再接收。
+            observer_delete(p_node_event);
+            p_node_event = NULL;
+                
+            // 4. 获取接收包的 payload.
+            p_data = protocol_up2p_data_alloc( &p_link->session,&len_data,package_recv.p_package,package_recv.len);
             // free it. we don't need it blew.
             ufree(package_recv.p_package);
             package_recv.p_package = NULL;
-            // 返回 0 标记已经接收到回应.
+              // 返回 0 标记已经接收到回应.
             ret = 0;
             break;
         }        
@@ -112,7 +120,7 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
     }while(_TM_MSEC(current_tm.tv_sec,current_tm.tv_usec) - _TM_MSEC(star_tm.tv_sec,star_tm.tv_usec) < MAX_RERANSMITS_TIMEOUT_ms);
 
     if(p_data && len_data ){
-        log_level(U_LOG_DEBUG,"receive data %s",p_data);
+        log_level(U_LOG_DEBUG,"receive data :  %s len = %d ",p_data,len_data);
         *pp_recv = p_data;
         *p_len_recv = len_data;
     }
@@ -120,7 +128,12 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
     ufree(p_pack);
     return ret;
 }
+// 
+int link_close(LINK_ST *p_link){
 
+    ufree(p_link);
+    return -1;
+}
 // 建立session
 LINK_ST *link_open(int fd,u16 part,u32 mydevid0,u32 mydevid1,u32 dstdevid0,u32 dstdevid1,u32 dstip,u32 dstport,u32 aeskey0,u32 aeskey1){
     int ret = 0;
@@ -142,7 +155,9 @@ LINK_ST *link_open(int fd,u16 part,u32 mydevid0,u32 mydevid1,u32 dstdevid0,u32 d
     p_link->session.aeskey1 = aeskey1;
 
     // get session token 
-    // link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int len,u32 resp_cmd,u8 **pp_recv,u32 *p_len_recv,int timeout_ms)；
+    // link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int len,u32 resp_cmd,u8 **pp_recv,u32 *p_len_recv,int timeout_ms);
+    
+    log_level(U_LOG_WARN,"link address %p",p_link);
     ret = link_request_wait_response(p_link,CMD_GET_TOKEN,NULL,0,CMD_GET_TOKEN_ACK,&p_recv,&len_recv,0);
     if(ret !=0 ){
         log_level(U_LOG_WARN,"link open failt!! ");
@@ -158,7 +173,20 @@ LINK_ST *link_open(int fd,u16 part,u32 mydevid0,u32 mydevid1,u32 dstdevid0,u32 d
     }
     p_link->session.token = *(u32*)p_recv;
     log_level(U_LOG_DEBUG,"get session token %x",p_link->session.token);
-    
+
+
+    ufree(p_recv);
+    p_recv = NULL;
+    len_recv = 0;
+    ret = link_request_wait_response(p_link,CMD_SEND_SERIAL,"test",strlen("test"),CMD_SEND_SERIAL_ACK,&p_recv,&len_recv,0);
+        ufree(p_recv);
+    p_recv = NULL;
+    len_recv = 0;
+    ret = link_request_wait_response(p_link,CMD_SEND_SERIAL,"test2",strlen("test2"),CMD_SEND_SERIAL_ACK,&p_recv,&len_recv,0);
+    ufree(p_recv);
+    p_recv = NULL;
+    len_recv = 0;
+    // free it.
     return p_link;
     //ret = link_request_send(p_link,CMD_GET_TOKEN,NULL,0);
     
@@ -186,7 +214,7 @@ int link_event_wait_block(LINK_ST *p_link,Observer_Event event,u8 *p_package, u3
     // 4、若不匹配，接到到底额包直接丢弃。
 // 处理接收
 int link_recv_handle(const u8 *p_recv,int len_recv,UDP_INFO *p_info){
-    Session_ST *p_s = NULL;
+    LINK_ST *p_l = NULL;
 
     // 1、接收包的协议是匹配
     if(protocol_up2p_magic_notMatch(p_recv,len_recv))
@@ -203,9 +231,10 @@ int link_recv_handle(const u8 *p_recv,int len_recv,UDP_INFO *p_info){
 #if 1
     LL_FOREACH_SAFE(head, el, tmp){
     
-         p_s = el->p_user;
+         p_l = (Session_ST*)el->p_user;
+         
         // 3、 匹配则把 data 挂到对应的节点，并把节点摘掉。
-        if(protocol_up2p_devid_match(p_s->mydevid0,p_s->mydevid1,p_recv)){
+        if(protocol_up2p_devid_match(p_l->session.mydevid0,p_l->session.mydevid1,p_recv)){
                 // push 
                 if(el->p_user_data){
                     // alloc 
@@ -240,11 +269,10 @@ int link_recv_handle(const u8 *p_recv,int len_recv,UDP_INFO *p_info){
 int fd = -1;
 static void _test_recv_proc_thread()
 {
-
+    char recvbuf[MAX_NET_PACKAGE_SIZE];
     while(1){
             int len;
             UDP_INFO info;
-            char recvbuf[MAX_NET_PACKAGE_SIZE];
             
             memset(&info,0,sizeof(UDP_INFO));
             memset(recvbuf,0,MAX_NET_PACKAGE_SIZE);
@@ -260,6 +288,7 @@ static void _test_recv_proc_thread()
 // 3、 释放
 int unittest_link(void){
 
+    observer_creat(12);
     fd = socket_listenbin_creat(_TEST_LISTEN_PORT);
     logLevel_set(0);
     if(fd == -1 ){
@@ -276,12 +305,14 @@ int unittest_link(void){
     log_level(U_LOG_DEBUG,"host ip =  %d",host_ip);
     // 发送请求。
     //LINK_ST *link_open(int fd,u16 part,u32 mydevid0,u32 mydevid1,u32 dstdevid0,u32 dstdevid1,u32 dstip,u32 dstport,u32 aeskey0,u32 aeskey1){
-    LINK_ST *p_link = link_open(fd,0,1,1,2,2,host_ip,_TEST_REMOTEF_PORT,0,0);
+    LINK_ST *p_link = link_open(fd,0,1,1,2,2,host_ip,htons(_TEST_REMOTEF_PORT),0,0);
     if(p_link == NULL){
         log_level(U_LOG_ERROR,"link open failt !!");
         return -1;
     }
     else log_level(U_LOG_INFO,"link open successfully!!");
+
+    link_close(p_link);
 
     return 0;
 }

@@ -70,8 +70,8 @@ int main(int argc, const char *argv[])
     up2pc_setkey(key0, key1);
     up2pc_set_server(server_ip, server_port);
     up2pc_set_local(0, htons(local_port));
-    //up2pc_set_name(dev0, dev1);
-    up2pc_set_name(2, 2);
+    up2pc_set_name(dev0, dev1);
+    //up2pc_set_name(2, 2);
     
     pthread_create(&thread, NULL, (void *)recv_proc_thread, NULL);
     // 更新服务器信息

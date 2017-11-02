@@ -301,14 +301,14 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 	memcpy(packet, inpkt, sizeof(UP2P_PACKET));
 
 	// 解密
-	w_dump("raw payload  ",inpkt->payload,inpkt->len);
+	//w_dump("raw payload  ",inpkt->payload,inpkt->len);
   	dec_len = data_dec(inpkt->payload, packet->payload, packet->len,up2pc_key0, up2pc_key1);
     
-	w_dump("payload after decode ",packet->payload,dec_len);
-	w_debug_level(U_LOG_INFO,"receive packet cmd:%x \n",data->cmd);
+	//w_dump("payload after decode ",packet->payload,dec_len);
+	w_debug_level(U_LOG_INFO," ### receive packet cmd:%x \n",data->cmd);
 
     if(data->cmd == CMD_GET_TOKEN){
-        w_debug_level(U_LOG_DEBUG," get token  %x \n", global_token);
+        w_debug_level(U_LOG_INFO," get token  %x \n", global_token);
 		ret = up2pc_ack_data_cmd(info, packet->src0, packet->src1,\
 			CMD_GET_TOKEN_ACK,packet->idx, (char *)&global_token, sizeof(UP2P_TOKEN));
         goto _RECV_CMDHANDLE_END;
@@ -334,7 +334,7 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 			CMD_UPDATE_TOKEN_ACK,packet->idx, (char *)&tmp, sizeof(UP2P_TOKEN));
         
 		global_token = tmp.token;
-		w_debug_level(U_LOG_INFO,"update token to %x", global_token);
+		w_debug_level(U_LOG_INFO,"update token to %x \n", global_token);
 		goto _RECV_CMDHANDLE_END;
 	}
 	else
@@ -342,12 +342,16 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 		if(data->token != global_token)
 		{
 			// 回应令牌错误
+			
+            w_debug_level(U_LOG_INFO,"token errorl recv %x my is %x \n",data->token,global_token);
 			ret = up2pc_ack_data_cmd(info, packet->src0, packet->src1,\
 										CMD_DATA_KEY_ERR, packet->idx, NULL, 0);
 			//w_debug_level(U_LOG_WARN,"token was not match receive %lx my token is %lx", data->token, global_token);
 			goto _RECV_CMDHANDLE_END;
 		}
 	}
+    
+    w_debug_level(U_LOG_INFO,"check index\n");
 	// 对于重发的指令, 直接回应
 	if(lastsend->magic == MAGIC &&
 		lastsend->idx == packet->idx &&
@@ -388,6 +392,7 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
             break;
 
         case CMD_SEND_SERIAL:
+            w_debug_level(U_LOG_DEBUG, "payload %s len %d \n",data->payload,data->len);
         	// 串口数据
         	serial_write((const char*)data->payload, data->len);
         	// 回应
@@ -485,7 +490,6 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 	}
 _RECV_CMDHANDLE_END:
 	
-	w_debug("_RECV_CMDHANDLE_END");
 	if(packet)
 		free(packet);
 	return ret;

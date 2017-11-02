@@ -21,6 +21,25 @@ extern "C"{
 #define INTERVAL_RETRANSMIT_MS  (500)
 
 #define SELF_TEST
+/************ device id 分配 ******
+* device id 一共 16 个字符，
+------------------------------
+|4位端标识|12位 mac 地址|
+-------------------------
+********/
+#define ID_DEVICE_SMARTHOME (0X10)
+#define ID_DEVICE_SERVER    (0X20)
+#define ID_DEVIDE_REST      (0X30)
+
+// dev  中转服务器 
+#define DEVICE_SERVER0  ("127.0.0.1")
+
+// 端口配置
+#define UP2PC_PORT 9527
+#define UP2PA_PORT 9528
+#define UP2PS_PORT 9529
+#define SERVER_REST_PORT (9511)
+
 // 最大的订阅数量
 #define MAX_OBSERS  (3)
 #ifdef __cplusplus

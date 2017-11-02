@@ -62,11 +62,6 @@ PRO_UP2P_ENCRY_HEAD *protocol_up2p_decode_alloc(Session_ST *p_session,int *p_len
 int protocol_up2p_filter(Session_ST *p_session,u8 *p_src,int slen);
 u8 *protocol_up2p_data_alloc(Session_ST *p_session,int *p_dlen,u8 *p_src,int slen);
 
-
-
-
-
-
 #if 1
 
 int unittest_protocol_test(void);

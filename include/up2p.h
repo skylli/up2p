@@ -84,9 +84,6 @@ typedef struct sockaddr SOCKADDR;
 //一个sock 占用的内存 单位为bytes
 #define  SIZEOFSOCK   (sizeof(UDP_INFO))
 
-#define UP2PC_PORT 9527
-#define UP2PA_PORT 9528
-#define UP2PS_PORT 9529
 
 // device id  地址分段
 
@@ -233,6 +230,9 @@ typedef enum U_RETURN_T
     U_ERROR_SOCKET = -4,
     U_ERROR_LIINKDEV = -5,
     U_ERROR_SERVER_REQUEST_PAYLOAD = -6,
+
+    U_ERROR_RESPON_BAD_REQUEST = -7,
+    U_ERROR_RESPON_NON_DEVICEREQPON = -8,
     U_ERROR_MAX
 }U_Return_T;
 

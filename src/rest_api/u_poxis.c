@@ -56,9 +56,8 @@ int socket_udp_send(int fd,const char *data, int len, UDP_INFO *info)
     ret = sendto(fd, data, len, 0, (SOCKADDR*)&dstaddr, addrlen);
     if(ret  < 0){
         perror("socket sendto error");
-        w_debug_level(U_LOG_ERROR, "sendto failt, socket error!! ret = %d",ret);
+        log_level(U_LOG_ERROR, "sendto failt, socket error!! ret = %d",ret);
     }
-
     return ret;
 }
 
@@ -68,9 +67,9 @@ int socket_udp_recv(int fd,char *recv_data,int buffer_size, int *p_len_send, UDP
     struct sockaddr_in sin_recv;
     int addrlen = sizeof(SOCKADDR);
 
-    while(1)
+    if(fd)
     {
-        size = recvfrom(fd, recv_data, buffer_size, 0, (SOCKADDR*)&sin_recv, &addrlen);
+        size = recvfrom(fd, recv_data, buffer_size, MSG_DONTWAIT, (SOCKADDR*)&sin_recv, &addrlen);
         // todo 模拟随机"丢包"        
 
         if(DEBUG_LEVEL >= U_LOG_DEBUG  && size > 0 ){
@@ -82,7 +81,7 @@ int socket_udp_recv(int fd,char *recv_data,int buffer_size, int *p_len_send, UDP
         info->dip = 0;   // 实际上用不到这两个值
         info->dport = 0;
         *p_len_send = size;
-        
+
         return size ;
     }
     return 0;

@@ -24,9 +24,9 @@
 
 int main(void){
     //logLevel_set(U_LOG_ALL);
-   //restApi_unittest_rest_api();
+   unittest_rest_api();
    ///unittest_observer_queue();
    //unittest_protocol_test();
-   unittest_link();
+   //unittest_link();
 }
 

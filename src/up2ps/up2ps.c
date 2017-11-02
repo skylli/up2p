@@ -549,7 +549,7 @@ int up2ps_socket_init(void){
     struct sockaddr_in sin;
         
     // set log level 
-    log_level(U_LOG_INFO,"Creat UP2PS relay server %s %s", __DATE__, __TIME__);
+   // log_level(U_LOG_INFO,"Creat  %s %s", __DATE__, __TIME__);
     
     server_port = UP2PS_PORT;
     // load ip list 
@@ -573,7 +573,7 @@ int up2ps_socket_init(void){
     }
     
     bind(socket_main, (SOCKADDR*)&sin, sizeof(SOCKADDR));
-    log_level(U_LOG_INFO,"up2p relay listen to %d",server_port);
+    log_level(U_LOG_INFO,"socket listen to %d",server_port);
     
 
 }

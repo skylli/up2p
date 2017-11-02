@@ -65,7 +65,7 @@ int debug_log(const char *fmt, ...)
 int up2p_log(const char *tag,const char *file,const char* func,int line,const char *fmt, ...)
 {
     
-	char buffer[0x1000];
+	char buffer[0x1000] = {};
 	char *time_s = time_str();
     char head[512];
 

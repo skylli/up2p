@@ -11,10 +11,12 @@ CMakeFiles/restapi.0.1.1.dir/src/crypt/up2p_crypt.c.o: ../src/crypt/up2p_crypt.c
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../include/config.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../include/up2p.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../include/util.h
-CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/up2ps/up2ps.h
+CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/protocol/protocol_up2p.h
+CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/up2ps/up2p_oauth2.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/util/observer_queue.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/rest_api/rest_api.c
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/rest_api/rest_api.h
+CMakeFiles/restapi.0.1.1.dir/src/rest_api/rest_api.c.o: ../src/rest_api/vlink.h
 
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/u_poxis.c.o: ../include/config.h
 CMakeFiles/restapi.0.1.1.dir/src/rest_api/u_poxis.c.o: ../include/up2p.h

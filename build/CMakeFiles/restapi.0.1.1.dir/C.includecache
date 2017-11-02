@@ -60,11 +60,9 @@ observer_queue.h
 up2p.h
 ../src/protocol/up2p.h
 
-../src/up2ps/up2ps.h
-up2p.h
-../src/up2ps/up2p.h
-util.h
-../src/up2ps/util.h
+../src/up2ps/up2p_oauth2.h
+jwt.h
+-
 
 ../src/util/observer_queue.h
 up2p.h
@@ -89,8 +87,12 @@ jansson.h
 -
 ulfius.h
 -
-up2ps.h
-/home/derry/github/up2p/src/rest_api/up2ps.h
+up2p_oauth2.h
+/home/derry/github/up2p/src/rest_api/up2p_oauth2.h
+vlink.h
+/home/derry/github/up2p/src/rest_api/vlink.h
+util.h
+/home/derry/github/up2p/src/rest_api/util.h
 rest_api.h
 /home/derry/github/up2p/src/rest_api/rest_api.h
 

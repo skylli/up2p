@@ -52,8 +52,6 @@ PRO_UP2P_HEAD *protocol_up2p_pack_alloc(Session_ST *p_session,u32 cmd,int *p_out
     p_pack->src1 = p_session->mydevid1;
     p_pack->len = slen;
 
-
-
     *p_outlen = sizeof(PRO_UP2P_HEAD) + slen;
     
     return p_pack;
@@ -196,8 +194,8 @@ u8 *protocol_up2p_data_alloc(Session_ST *p_session,int *p_dlen,u8 *p_src,int sle
     p_payload = protocol_up2p_payload_get(p_session,p_src,slen);
     PRO_UP2P_HEAD *p = (PRO_UP2P_HEAD*)p_src;
     len_payload = p->len;
-
-    if(p->cmd == CMD_DATA){
+    
+    if(p->cmd >= CMD_DATA){
       p_dec = protocol_up2p_decode_alloc(p_session,&len_dec,p_payload,len_payload);
       if( p_dec  && len_dec){
             p_payload = p_dec->payload;
@@ -214,8 +212,10 @@ u8 *protocol_up2p_data_alloc(Session_ST *p_session,int *p_dlen,u8 *p_src,int sle
         ufree(p_dec);
         return NULL;
     }
-    if(p_payload && len_payload)
+    if(p_payload && len_payload){
+       // log_level(U_LOG_DEBUG,"payload [%x][%x] len  = %d",p_data[0],p_data[1],len_payload);
         memcpy(p_data,p_payload,len_payload);
+        }
     
     *p_dlen = len_payload;
 
