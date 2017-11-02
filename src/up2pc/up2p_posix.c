@@ -49,7 +49,7 @@ int up2pc_udp_recv( char *recv_data,int buffer_size, int *plen, UDP_INFO *info)
         size = recvfrom(socket_main, recv_data, buffer_size, 0, (SOCKADDR*)&sin_recv, &addrlen);
         // todo 模拟随机"丢包"        
 
-        if(DEBUG_LEVEL >= U_LOG_DEBUG  && size > 0 ){
+        if(DEBUG_LEVEL <= U_LOG_DEBUG  && size > 0 ){
             w_dump("udp receive : ",recv_data,size);
         }
             
@@ -58,7 +58,7 @@ int up2pc_udp_recv( char *recv_data,int buffer_size, int *plen, UDP_INFO *info)
         info->dip = 0;   // 实际上用不到这两个值
         info->dport = 0;
         *plen = size;
-        #if 1
+        #if 0
         if(size>0)
             w_dump("udp receive : ",recv_data,size);
         #endif
@@ -76,13 +76,13 @@ int serial_read(char *data, int len)
 
 int serial_write(const char *data, int len)
 {
-      printf("uart len : %d\n", len);
+      printf("receive data :\t");
       int i=0;
       for(i;i<len;i++){
-        printf("[%d]",(u8)data[i]);
+        printf("%c",(u8)data[i]);
 
       }
-      printf("\tend\n");
+     printf("\n");
     if( len < 4 || data[0] != 0x55){
       printf("receive unsupport data");
       return 0;

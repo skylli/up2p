@@ -12,6 +12,8 @@ up2p 是一套非标准，针对多app端控制单设备模型设计的协议。
 ├── build       //cmake 编译生成的中间件
 ├── build.sh    //一键编译脚本
 ├── CMakeLists.txt  // 根cmake
+├── build.android	// android 平台编译文件
+├── build.ios		// ios 以及 iphone 平台编译文件
 ├── config          //工程配置文件
 ├── doc             //说明文档
 ├── include         //工程头文件，
@@ -31,6 +33,22 @@ up2p 是一套非标准，针对多app端控制单设备模型设计的协议。
 ```
 
 ##使用
+mac 和 linux 下的使用
+```shell
+
+cd up2p/build
+make 
+cd ../bin/
+ls
+./vmup2pc  9527  127.0.0.1  9529 0000000C4326605A 0000000000000000
+# 在另外一个终端 启动 模拟 app 端
+cd up2p/bin
+./vmup2pa   127.0.0.1  0000000C4326605A
+# 出现以下字符 输入要传输的字符串
+input string : abcd123
+
+```
+
 ###编译
 生成对应的库以及可执行文件
 ```bash

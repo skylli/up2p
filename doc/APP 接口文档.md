@@ -1,10 +1,10 @@
-#ulink库 接口文档
-##简要
+#	ulink库 接口文档
+##	简要
 ulink 是基于 udp 实现对 wifi 模块通讯以及控制。使用wifi 模块的设备在此统一称为设备。
 >1.建立会话：调用 *ulink_config* 配置设备的秘钥，并获取设备会话的token.接着调用 *ulink_open* 获取当前会话(*ulink_open* 会在后续设备共享中用到)，网络环境差或者设备根本不存在，这两个接口会最多会阻塞30s。*ulink*数据结构见数据说明。
 >数据的发送和接收:成功获取 *ulink* 时，可以调用 *ulink_cmd_send* 发送指令，支持的指令在 *ulink.h*中。调用*ulink_cmd_wait* 阻塞等待对应包的回应，最多阻塞*10s*，因为 *ulink_cmd_wait* 在等待时重发上一个包，所以*ulink_cmd_wait*应该紧跟着*ulink_cmd_send*.
 
-##数据说明：
+##	数据说明：
 ulink 为描述会话对象,局域网下 ulink 直接同设备通讯，app 和设备不在一个域内则同 server 通讯.
 
 ```c
@@ -18,7 +18,7 @@ struct ULINK{
     u16 sport;
 };
 ```
-##库接口说明：
+##	库接口说明：
 ```c
 /*
  * description : 配置设备

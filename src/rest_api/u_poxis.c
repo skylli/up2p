@@ -72,7 +72,7 @@ int socket_udp_recv(int fd,char *recv_data,int buffer_size, int *p_len_send, UDP
         size = recvfrom(fd, recv_data, buffer_size, MSG_DONTWAIT, (SOCKADDR*)&sin_recv, &addrlen);
         // todo 模拟随机"丢包"        
 
-        if(DEBUG_LEVEL >= U_LOG_DEBUG  && size > 0 ){
+        if(DEBUG_LEVEL <= U_LOG_DEBUG  && size > 0 ){
             w_dump("udp receive : ",recv_data,size);
         }
             

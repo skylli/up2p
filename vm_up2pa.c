@@ -63,22 +63,19 @@ static int _file_transmit(ULINK *ulink,int fd){
     psend->len = read(fd,psend->payload,MAX_NET_PACKAGE_SIZE-100);
     filepositon += psend->len;
 
-    log_level(U_LOG_INFO, ">>>>>>> reading file len %d",psend->len);
-    log_level(U_LOG_INFO,"file : %s",psend->payload);
+    log_level(U_LOG_INFO, "reading file len %d",psend->len);
+    log_level(U_LOG_INFO,"reading text : %s",psend->payload);
     while(1){
         int sendlen = sizeof(FILE_T) + psend->len;
-        getchar();
         ulink_cmd_send(ulink, CMD_FILE_TXT, psend, sendlen);
         memset(recvbuf,0,MAX_SERIAL_SIZE);
         ret = ulink_cmd_wait(ulink, CMD_FILE_TXT_ACK, recvbuf, MAX_SERIAL_SIZE);
         if(ret <  sizeof(FILE_T)) {
             w_debug(" ack error %d",ret);
-            getchar();
         }
         FILE_T *pack = (FILE_T*)recvbuf;
         if(pack->type == FILE_CMD_CAN){
-            log_level(U_LOG_INFO, " >>> transmit was cansole .");
-            getchar();
+            log_level(U_LOG_WARN, " >>> transmit was cansole .");
             return -1;
         }else if(pack->type == FILE_CMD_ACK){
             memset(psend->payload ,0,(MAX_NET_PACKAGE_SIZE-4));
@@ -89,12 +86,12 @@ static int _file_transmit(ULINK *ulink,int fd){
             psend->len = read(fd,psend->payload,MAX_NET_PACKAGE_SIZE-100);
             
             filepositon += psend->len;
-            
-            log_level(U_LOG_INFO,"index : %d", psend->index);
-            log_level(U_LOG_INFO,"file : %s",psend->payload);
+            printf("+");
+            //log_level(U_LOG_INFO,"index : %d", psend->index);
+            //log_level(U_LOG_INFO,"file : %s",psend->payload);
             
             if(psend->len == 0 ){
-                log_level(U_LOG_INFO,"read end !!");
+                log_level(U_LOG_WARN,"\t\n read end !!");
                 psend->type = FILE_CMD_END;
                 ulink_cmd_send(ulink, CMD_FILE_TXT, psend, sizeof(FILE_T));
                 memset(recvbuf,0,MAX_SERIAL_SIZE);
@@ -102,29 +99,29 @@ static int _file_transmit(ULINK *ulink,int fd){
                 return 0;
             }
             else if(psend->len < 0){
-                    log_level(U_LOG_INFO, ">> read file error ");
-                    getchar();
+                    log_level(U_LOG_WARN, ">> read file error ");
                     return  -1;
             }
         }
     }
     return -1;
 }
+/*
+*   1. 初始化 sdk
+*   2. 建立session
+*   3. 传输命令
+*
+*/
 void ulink_test(const char* host,const char *dev)
 {
     int ret;
     ULINK *ulink;
     char outkey[32],strcmd[512];
-    logLevel_set(U_LOG_ALL);
-    log_detail_set(1);
-    //ulink_init("127.0.0.1", "0102030405060708");
+    // 设置 sdk log 输出等级
+    logLevel_set(U_LOG_WARN);
+    // 初始化 sdk 
     ulink_init(host, "0102030405060708",9529);    
-   // ret = ulink_config(dev, "my wifi", "12345678", ULINK_AUTH_WPA1PSKWPS2PSK, &outkey);
-//    if(ret != ULINK_ERR_NONE)
-//    {
-//        log_level(U_LOG_ERROR,"ulink_config err = %d", ret);
-//        goto _err;
-//    }
+    // 建立 session .
     ulink = ulink_open(dev, "0000000000000000");
 
     if(ulink == NULL)
@@ -143,27 +140,22 @@ void ulink_test(const char* host,const char *dev)
     ret = ulink_check_online(ulink);
     log_level(U_LOG_INFO,"dev state %d", ret);
     delay_ms(500);
-    UP2P_IO_MODE iomode;
 
-    iomode.pin = 5;
-    iomode.mode = 1;
-    
-    ulink_cmd_send(ulink, CMD_GPIO_INIT, &iomode, 2);
-    ret = ulink_cmd_wait(ulink, CMD_GPIO_INIT_ACK, recvbuf, MAX_SERIAL_SIZE);
-
-    UP2P_IO io;
+    //仅仅传输文件
     int fd  = _file_int(ulink,"/tmp/ctrl.c");
     if(fd != -1)
         _file_transmit(ulink, fd);
+    // 传输键盘输入的字符串.
     while(1)
     {
        memset(strcmd,0,512);
        memset(recvbuf,0,MAX_SERIAL_SIZE);
+       
+       printf("\n input string :\t");
        scanf("%s", strcmd);
-       printf(">>>> send cmd : %s",strcmd);
        ret = ulink_cmd_send(ulink, CMD_SEND_SERIAL, strcmd, strlen(strcmd));
        ret = ulink_cmd_wait(ulink, CMD_SEND_SERIAL_ACK, recvbuf, MAX_SERIAL_SIZE);
-       delay_ms(3*1000);
+       delay_ms(1000);
     }
         ulink_border_end();
         ulink_close(ulink);
@@ -183,7 +175,6 @@ int main(int argc, const char *argv[])
         return -1;
     }
     
-    //ulink_test("0000000C4326605A");
     ulink_test(argv[1],argv[2]);
 
 }

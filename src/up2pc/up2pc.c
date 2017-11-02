@@ -199,7 +199,7 @@ static int _file_init(const char * fname,int flen,UDP_INFO *info, u32 dst0, u32 
     int ret = -1;
 #ifdef MAC_LINUX // only linux 
     fp = open("demofile.bin", O_CREAT | O_WRONLY,S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    w_debug_level(U_LOG_INFO,"creatnewbinfile\n");
+    w_debug_level(U_LOG_DEBUG,"creatnewbinfile\n");
     if(fp == -1 )
     {
         perror("demofile.bin:");
@@ -221,9 +221,8 @@ static int _file_write(UDP_INFO *info,u32 dst0,u32 dst1, u16 idx,const char *dat
         goto FILE_RESPON;
     }                
 
-    w_debug_level(U_LOG_INFO," type %d len %d\n",p_buf->type,p_buf->len);
+    w_debug_level(U_LOG_DEBUG," type %d len %d\n",p_buf->type,p_buf->len);
     w_debug_level(U_LOG_INFO,"file %s\n",p_buf->payload);
-    w_debug(">>>>> receive type : %d\n",p_buf->type);
 #if 1
     switch(p_buf->type){
         
@@ -305,7 +304,6 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
   	dec_len = data_dec(inpkt->payload, packet->payload, packet->len,up2pc_key0, up2pc_key1);
     
 	//w_dump("payload after decode ",packet->payload,dec_len);
-	w_debug_level(U_LOG_INFO," ### receive packet cmd:%x \n",data->cmd);
 
     if(data->cmd == CMD_GET_TOKEN){
         w_debug_level(U_LOG_INFO," get token  %x \n", global_token);
@@ -334,7 +332,8 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 			CMD_UPDATE_TOKEN_ACK,packet->idx, (char *)&tmp, sizeof(UP2P_TOKEN));
         
 		global_token = tmp.token;
-		w_debug_level(U_LOG_INFO,"update token to %x \n", global_token);
+		w_debug_level(U_LOG_WARN,"update token to %x \n", global_token);
+		w_debug_level(U_LOG_WARN,"sessiong has been build");
 		goto _RECV_CMDHANDLE_END;
 	}
 	else
@@ -343,7 +342,7 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 		{
 			// 回应令牌错误
 			
-            w_debug_level(U_LOG_INFO,"token errorl recv %x my is %x \n",data->token,global_token);
+            w_debug_level(U_LOG_WARN,"token errorl recv %x my is %x \n",data->token,global_token);
 			ret = up2pc_ack_data_cmd(info, packet->src0, packet->src1,\
 										CMD_DATA_KEY_ERR, packet->idx, NULL, 0);
 			//w_debug_level(U_LOG_WARN,"token was not match receive %lx my token is %lx", data->token, global_token);
@@ -351,7 +350,6 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 		}
 	}
     
-    w_debug_level(U_LOG_INFO,"check index\n");
 	// 对于重发的指令, 直接回应
 	if(lastsend->magic == MAGIC &&
 		lastsend->idx == packet->idx &&
@@ -366,8 +364,7 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
 	lastsend->dst0 = packet->dst0;
 	lastsend->dst1 = packet->dst1;
 
-    
-	w_debug_level(U_LOG_INFO,"receive packet cmd:%x len %d \n",data->cmd,data->len);
+    w_debug_level(U_LOG_INFO,"receive cmd:%x \n",data->cmd);
 	switch(data->cmd)
 	{
         // 订阅状态
@@ -419,7 +416,7 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
         	memcpy(&up2pc_key0,p,sizeof(up2pc_key0));
         	memcpy(&up2pc_key1,(p+sizeof(up2pc_key0)),sizeof(up2pc_key1));
         	
-        	w_debug_level(U_LOG_INFO,"setting key0 = %x key1 = %x",up2pc_key0,up2pc_key1);
+        	w_debug_level(U_LOG_INFO,"setting aes key0 = %x key1 = %x",up2pc_key0,up2pc_key1);
         	// updata flash key. todo
         	//if(sys_set_key(up2pc_key0, up2pc_key1) !=0 )
         	//break;
@@ -519,7 +516,6 @@ int up2pc_recv(const char *data, int len, UDP_INFO *info)
 					packet->dst0,packet->dst1,up2pc_dev0,up2pc_dev1);
 		return -1;
 	}
-	w_debug_level(U_LOG_INFO,"receive cmd = %lx",packet->cmd);
     
 	switch(packet->cmd)
 	{

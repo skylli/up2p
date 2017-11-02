@@ -822,10 +822,10 @@ int up2pa_send_data_cmd(u32 dev0, u32 dev1, u32 key0, u32 key1, u32 token, u32 c
     }
     
     unsigned char *p = (unsigned char *)data;
-    w_dump("befor aes raw data ",p,(sizeof(UP2P_DATA) + data->len));
+    //w_dump("befor aes raw data ",p,(sizeof(UP2P_DATA) + data->len));
     len = data_enc((char *)data, outbuf, sizeof(UP2P_DATA) + data->len, key0, key1);
 
-    w_dump("after aes data ",outbuf,len);
+    //w_dump("after aes data ",outbuf,len);
     ret = up2pa_send_cmd(dev0, dev1, CMD_DATA, outbuf, len);
 
     return ret;
