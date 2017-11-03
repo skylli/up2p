@@ -156,7 +156,7 @@ int observer_event_wait(void *el, u8 event,const int timeout_ms,void *pp_user_da
     log_level(U_LOG_INFO,"waitting event timeout !!");
 
     observer_delete(el);
-    return ;
+    return 0;
 }
 
 // 订阅事件，并等待。
@@ -258,7 +258,7 @@ void unittest_observer_queue(void){
         id[i] = i;
         if (pthread_create(&pt[i], NULL, _test_thread_observer, &id[i]) != 0){
                 log_level(U_LOG_ERROR,"thread create failed!\n");
-                return 1;
+                return ;
         }
     }
     

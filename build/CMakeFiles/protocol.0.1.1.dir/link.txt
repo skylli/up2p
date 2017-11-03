@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../lib/libprotocol.0.1.1.a  CMakeFiles/protocol.0.1.1.dir/src/protocol/protocol_up2p.c.o CMakeFiles/protocol.0.1.1.dir/src/util/util.c.o CMakeFiles/protocol.0.1.1.dir/src/util/observer_queue.c.o CMakeFiles/protocol.0.1.1.dir/src/util/debug.c.o CMakeFiles/protocol.0.1.1.dir/src/crypt/aes.c.o CMakeFiles/protocol.0.1.1.dir/src/crypt/up2p_crypt.c.o
-/usr/bin/ranlib ../lib/libprotocol.0.1.1.a

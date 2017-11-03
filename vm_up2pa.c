@@ -53,7 +53,7 @@ static int _file_int(ULINK *ulink,const char *file_path){
 static int _file_transmit(ULINK *ulink,int fd){
 
     u8 rbuf[MAX_NET_PACKAGE_SIZE];
-    memset(rbuf,0,MAX_NET_PACKAGE_SIZE);
+    umemset(rbuf,0,MAX_NET_PACKAGE_SIZE);
     FILE_T *psend = (FILE_T*)rbuf;
     off_t filepositon = 0;
     int ret = 0;
@@ -65,10 +65,12 @@ static int _file_transmit(ULINK *ulink,int fd){
 
     log_level(U_LOG_INFO, "reading file len %d",psend->len);
     log_level(U_LOG_INFO,"reading text : %s",psend->payload);
+    
+    printf("\n transmiting file ../vm_up2pa.c \t");
     while(1){
         int sendlen = sizeof(FILE_T) + psend->len;
         ulink_cmd_send(ulink, CMD_FILE_TXT, psend, sendlen);
-        memset(recvbuf,0,MAX_SERIAL_SIZE);
+        umemset(recvbuf,0,MAX_SERIAL_SIZE);
         ret = ulink_cmd_wait(ulink, CMD_FILE_TXT_ACK, recvbuf, MAX_SERIAL_SIZE);
         if(ret <  sizeof(FILE_T)) {
             w_debug(" ack error %d",ret);
@@ -78,7 +80,7 @@ static int _file_transmit(ULINK *ulink,int fd){
             log_level(U_LOG_WARN, " >>> transmit was cansole .");
             return -1;
         }else if(pack->type == FILE_CMD_ACK){
-            memset(psend->payload ,0,(MAX_NET_PACKAGE_SIZE-4));
+            umemset(psend->payload ,0,(MAX_NET_PACKAGE_SIZE-4));
             psend->type = FILE_CMD_TXT;
             psend->index++;
 
@@ -94,7 +96,7 @@ static int _file_transmit(ULINK *ulink,int fd){
                 log_level(U_LOG_WARN,"\t\n read end !!");
                 psend->type = FILE_CMD_END;
                 ulink_cmd_send(ulink, CMD_FILE_TXT, psend, sizeof(FILE_T));
-                memset(recvbuf,0,MAX_SERIAL_SIZE);
+                umemset(recvbuf,0,MAX_SERIAL_SIZE);
                 ret = ulink_cmd_wait(ulink, CMD_FILE_TXT_ACK, recvbuf, MAX_SERIAL_SIZE);
                 return 0;
             }
@@ -142,19 +144,18 @@ void ulink_test(const char* host,const char *dev)
     delay_ms(500);
 
     //仅仅传输文件
-    int fd  = _file_int(ulink,"/tmp/ctrl.c");
+    int fd  = _file_int(ulink,"../vm_up2pa.c");
     if(fd != -1)
         _file_transmit(ulink, fd);
     // 传输键盘输入的字符串.
     while(1)
     {
-       memset(strcmd,0,512);
-       memset(recvbuf,0,MAX_SERIAL_SIZE);
        
        printf("\n input string :\t");
        scanf("%s", strcmd);
        ret = ulink_cmd_send(ulink, CMD_SEND_SERIAL, strcmd, strlen(strcmd));
        ret = ulink_cmd_wait(ulink, CMD_SEND_SERIAL_ACK, recvbuf, MAX_SERIAL_SIZE);
+       umemset(strcmd,strcmd, strlen(strcmd));
        delay_ms(1000);
     }
         ulink_border_end();

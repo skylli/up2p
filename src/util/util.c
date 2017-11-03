@@ -47,6 +47,12 @@ void *umalloc(size_t size){
     return p_ret;
 }
 
+int umemset(u8 *dst,u8 c,size_t n){
+    int i;
+    for(i=0;i<n;i++){
+        dst[i] = c;
+    }
+}
 void ufree(void *ptr){
     if( !ptr)
         return ;

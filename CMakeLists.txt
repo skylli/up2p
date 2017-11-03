@@ -104,6 +104,16 @@ ELSEIF(APPLE)
 ADD_LIBRARY(${ulink_ios} SHARED ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
 ADD_LIBRARY(${ulink_a_ios} STATIC ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
 
+#制作 up2pc 库
+ADD_LIBRARY(${up2pc} STATIC ${LIB_CRYPT_SOURCES} ${LIB_UP2PC_SOURCES} ${LIB_UTIL_SOURCES})
+#制作up2pa 库
+ADD_LIBRARY(${ulink} SHARED ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
+ADD_LIBRARY(${ulink_a} STATIC ${LIB_UP2PA_SOURCES} ${LIB_UTIL_SOURCES} ${LIB_CRYPT_SOURCES} )
+
+add_executable(vmup2pc vm_up2pc.c)
+target_link_libraries(vmup2pc ${up2pc} pthread)
+add_executable(vmup2pa vm_up2pa.c)
+target_link_libraries(vmup2pa ${ulink} pthread)
 ELSE()
 #FILE(GLOB LIB_UTIL_SOURCES ${SRC_PATH}/util/*.c)
 #制作 up2pc 库

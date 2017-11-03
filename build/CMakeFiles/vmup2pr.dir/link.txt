@@ -1,1 +1,0 @@
-/usr/bin/cc  -g   CMakeFiles/vmup2pr.dir/vm_up2pr.c.o  -o ../bin/vmup2pr -rdynamic ../lib/librestapi.0.1.1.a ../lib/libprotocol.0.1.1.a -lpthread -lulfius -ljansson -lorcania -ljwt -lm 
