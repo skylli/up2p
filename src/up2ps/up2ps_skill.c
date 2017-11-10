@@ -242,7 +242,6 @@ static int _resquest_getHsb(json_t *req,HsvColor *hsb){
     char *pvalue =NULL;
     int ret = 0;
     json_t *jfind = json_object_get(req,SKILL_REQUE_COLOR_PAYLOAD);
-
     
     if(!jfind || !json_is_object(jfind) ) {
         log_level(U_LOG_WARN,"color can't find %s !!!",SKILL_REQUE_COLOR_PAYLOAD);

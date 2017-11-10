@@ -87,7 +87,7 @@ int main(void) {
   
 
   // Initialize instance with the port number
-  if (ulfius_init_instance(&instance, HTTPSERVER_PORT, NULL, NULL) != U_OK) {
+  if (ulfius_init_instance(&instance, HTTPS_REST_PORT, NULL, NULL) != U_OK) {
     fprintf(stderr, "Error ulfius_init_instance, abort\n");
     return(1);
   }

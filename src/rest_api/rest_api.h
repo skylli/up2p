@@ -33,9 +33,13 @@
 #define RESPONSE_JKEY_DATA      "data"
 
 
-// 产品的功能定义，该字符应该同数据库中的一致，否则解析不了，功能不可用。
-// todo 工厂 产品 功能硬件相关的应该独立到一个文件
-#define _EVALOGIK_FUNCTION_TURNON "turnOn"
+typedef enum U_FACTORY_NAME_TYPE
+{
+    U_FAC_EVALOGIK,
+    U_FAC_KPXMALION,
+
+    U_FAC_MAX
+}U_Factory_Name_T;
 
 
 typedef struct{
@@ -46,9 +50,29 @@ typedef struct{
     pthread_t thread_recv;
     
 }Rest_Server_Info_ST;
+
+typedef struct{
+    u32 devid0;
+    u32 devid1;
+    u32 aeskey0;
+    u32 aeskey1;
+    u8 *p_factory;  // 厂家
+    u8 *p_category; // 品类
+    u8 *p_batch;    // 出厂批次
+    json_t *j_function; 
+
+}Product_CtlInfo;
+
+typedef struct{
+    u32 cmd;
+    u32 len_paylod;
+    u8 *p_payload;
+}DEV_CmdInfo;
+
 /***** 提供给 https-server 的入口 ***/
 // type:value request 
 int restApi_handle_dev_type_value_request (const struct _u_request * request, struct _u_response * response, void * user_data);
+char *_jason_str_get_value(json_t *json,const char *key);
 
 /*****设备端提供：  封装设备控制指令，并发送到设备处理***********/
 

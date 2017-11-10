@@ -123,6 +123,9 @@ typedef unsigned long u32;
 #endif // 32 bit or 64 bit
 
 #endif //#ifndef BOARD_ESP_8266  
+
+typedef size_t (*U_Func_T)();
+
  
 // 指令类型
 typedef enum U_CMD_T{

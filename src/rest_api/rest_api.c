@@ -21,24 +21,9 @@
 #include "vlink.h"
 #include "util.h"
 #include "rest_api.h"
+#include "factory_evalogik.h"
 
-typedef struct{
-    u32 devid0;
-    u32 devid1;
-    u32 aeskey0;
-    u32 aeskey1;
-    u8 *p_factory;  // 厂家
-    u8 *p_category; // 品类
-    u8 *p_batch;    // 出厂批次
-    json_t *j_function; 
 
-}Product_CtlInfo;
-
-typedef struct{
-    u32 cmd;
-    u32 len_paylod;
-    u8 *p_payload;
-}DEV_CmdInfo;
 
 //static u8 test_loop  = 10 ;
 static Rest_Server_Info_ST rest_ctl;
@@ -69,7 +54,7 @@ void restApi_init(u32    max_concurrent ){
 
     rest_ctl.devid_id_count = 0;
     observer_creat(max_concurrent);
-    rest_ctl.fd = socket_listenbin_creat(SERVER_REST_PORT);
+    rest_ctl.fd = socket_listenbin_creat(UP2PS_REST_PORT);
     
     if(rest_ctl.fd == -1 ){
         log_level(U_LOG_ERROR,"creat socket failt !!");
@@ -146,7 +131,7 @@ static int _device_id_get(u32 *devid0,u32 *devid1){
 *
 */  
 // remember value was borrow. u can't free it, or modify it.
-static char *_jason_str_get_value(json_t *json,const char *key)
+char *_jason_str_get_value(json_t *json,const char *key)
 {
     // find  key
      char *pvalue =NULL;
@@ -190,6 +175,7 @@ static int _device_ctrl(Product_CtlInfo *p_ctl_info, DEV_CmdInfo *p_cmd_info,u8 
     link_close(p_link);
     return ret;
 }
+#if 0
 // 1. 解析jason 的function 转换为u32 设备可以理解的形式。
 // 2. 解析 value，并把内容封装到 alloc 的地址里以便发送到设备。
 static int _factory_evalogik_cmd_value_alloc(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_cmdinfo){
@@ -239,12 +225,41 @@ static int _factory_evalogik_cmd_value_alloc(Product_CtlInfo *p_ctl_info,DEV_Cmd
     return U_ERROR_NULL;
 }
 
-// 对于 rest 应用层，没有硬件信息只有功能，在接收到 function-value 之后匹配厂家，
-//      然后再在厂家里解析 function-value 为硬件相关的控制信息,所以rest cmd这一层是 function 和硬件控制转换层，硬件匹配也在这一层入手。
+#endif
+/* send interface */
+U_Func_T _u_fac_funcTable[U_FAC_MAX + 1] = 
+{
+    (U_Func_T)_factory_evalogik_payload_alloc,//evalogik
+
+    (U_Func_T)NULL
+};
+// 该数组储存厂家的名称，在收到 jason 时会查询该数组匹配，
+// 匹配则调用该厂家的功能函数。
+static const u8 *_u_fac_nameTable[U_FAC_MAX + 1] = 
+{
+    FAC_NAME_EVALOGIK
+};
+
+// 1. 匹配厂家，
+// 2.调用厂家函数解析获取 需要控制设备的 payload.
 static int _device_factory_function_parse(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_cmdinfo){
     // todo 解析各类厂家
+    int i = 0;
+    
+    for(i = 0; i < U_FAC_MAX;i++){
+
+        //  1.匹配厂家
+        if(_u_fac_nameTable[i]  && ( strcmp(_u_fac_nameTable[i], p_ctl_info->p_factory) == 0 ) ){
+            if( _u_fac_funcTable[i]){
+
+                // 2. 调用厂家功能函数解析，获取控制设备的payload .
+                return (_u_fac_funcTable[i])(p_ctl_info,p_cmdinfo);
+            }
+            return U_ERROR_NULL;
+        }
+    }
+    return U_ERROR_NULL;
     // sofar just one factory
-    return _factory_evalogik_cmd_value_alloc(p_ctl_info,p_cmdinfo);
 }
 
 /*
@@ -412,8 +427,8 @@ void unittest_rest_api(void){
     struct _u_instance instance;
     
     logLevel_set(0);
-      // Initialize instance with the port number
-  if (ulfius_init_instance(&instance, HTTPSERVER_PORT, NULL, NULL) != U_OK) {
+      // Initialize instance with the port number  HTTPS_REST_PORT
+  if (ulfius_init_instance(&instance, 9511, NULL, NULL) != U_OK) {
     log_level(U_LOG_ERROR, "Error ulfius_init_instance, abort\n");
     return (-1);
   }

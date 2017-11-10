@@ -187,7 +187,7 @@ int observer_distory(void){
     pthread_mutex_destroy(&mutex_list);
 }
 // test code 
-#if 1
+#if 0
 #define _MAX_OBSER_NODE   (100)
 
 static int test_result_success = 0;
