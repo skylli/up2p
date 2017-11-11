@@ -73,6 +73,7 @@ typedef struct{
 // type:value request 
 int restApi_handle_dev_type_value_request (const struct _u_request * request, struct _u_response * response, void * user_data);
 char *_jason_str_get_value(json_t *json,const char *key);
+int json_integer_get(json_t *req,const char *key);
 
 /*****设备端提供：  封装设备控制指令，并发送到设备处理***********/
 

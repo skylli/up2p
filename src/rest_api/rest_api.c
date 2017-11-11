@@ -23,6 +23,7 @@
 #include "rest_api.h"
 #include "factory_evalogik.h"
 
+#define _JSON_NUMBER_GET(j)     ((json_is_integer(j) ? json_integer_value(j):json_real_value(j)))
 
 
 //static u8 test_loop  = 10 ;
@@ -122,6 +123,27 @@ static int _device_id_get(u32 *devid0,u32 *devid1){
     //*devid1 = (rand() | (rand() << 16);
     *devid1 = 0xff00000000000000;
     return 0;
+}
+
+ int json_integer_get(json_t *json,const char *key){
+    // find  key
+    char *pvalue =NULL;
+    int ret = 0;
+    
+    if(!json || !json_is_object(json) ) {
+        log_level(U_LOG_WARN,"Not an jason type");
+        return U_ERROR_INVALID;
+     }    
+    //JSON_REAL
+    json_t *sub = json_object_get(json,key);
+    if( !sub || !json_is_number(sub) ){
+             
+        log_level(U_LOG_WARN," can't find %s !!!",key);
+        return -1;
+        }
+             
+    return (int)_JSON_NUMBER_GET(sub);
+
 }
 
 /*

@@ -4,7 +4,7 @@
     Copyright wilddog.com
     All right reserved.
 
-    File:    _up2ps_rest_api.c
+    File:    factory_evalogik.c
 
    1.declere rest api.
 
@@ -19,79 +19,97 @@
 #include "util.h"
 #include "factory_evalogik.h"
 
+#define _PROTO_EVALOG_UART_VERSION	0x55
+
+
+typedef struct{
+    u8 version;          // 验证数,表示协议和协议版本
+    u8 cmd;            // 命令类型 
+    u8 idx;			// 序号, 预留给 sensor 使用
+	u8 len;            // 数据长度
+    char payload[0];    // 数据
+} APC_EVA_PACKET;
+
 // 1. 获取 json value 的长度，为输出的 payload 申请堆栈空间 malloc.
 // 2. 匹配 function 转换为 硬件能识别的功能指令.
 // 3. 封装 payload
 // 4. 输出.
+typedef enum UART_CMD_T{
+	_EVALOG_CMD_NONE  = 0x00,   // 空类型
+	_EVALOG_CMD_ON	  = 0x10,   //控制开
+	_EVALOG_CMD_OFF	  = 0x11,	//控制关
+  	_EVALOG_CMD_TREE_TOP_ON	  = 0x12,	// 控制树顶开关开
+	_EVALOG_CMD_TREE_TOP_OFF  = 0x13,	// 控制树顶开关关
+	_EVALOG_CMD_COLOR_CHANGE  = 0x14,	// 控制颜色转换
+	_EVALOG_CMD_TWINKLE = 0x15,	// 控制闪烁
+	_EVALOG_CMD_TIMER = 0x16, //控制定时
+	_EVALOG_CMD_MAX
+}UART_Cmd_T;
 
 static int _christmas_tree_ctl_payload_alloc(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_cmdinfo){
-     int ret = NULL;
 
      // 1. 获取 json value 的长度，为输出的 payload 申请堆栈空间 malloc.
-      
-      APC_PACKET *apc_packet = (APC_PACKET*)sbuff;
-      memset(apc_packet,0,255);
+    u8 *p_ret_payload = NULL,*p_svalue,*p_scmd;
+    
+    if(!p_cmdinfo || !p_ctl_info ){
+        return U_ERROR_INVALID;
+    }
+    p_scmd = _jason_str_get_value(p_ctl_info->j_function ,REQUEST_JKEY_FUNC_CMD);
+    if( !p_scmd ){
+        log_level(U_LOG_WARN,"Can't find any function!!");
+        return U_ERROR_NULL;
+    }
 
-      log_level(U_LOG_DEBUG,"cmd = %d\n",cmdindex);
-      switch(cmdindex){
-        case SKILL_CMD_TREE_TIMER:
-        {
-            int v = _resquest_payloadValue_integer_get(req,"value");
-            if(v > 0 && v < 24){
-              apc_packet->version = UART_VERSION;
-              apc_packet->cmd = 0;
-              apc_packet->idx = 0;
-              apc_packet->len = 1;
-              apc_packet->payload[0]  = (u8)v;
-            }else // we don't do any thing  whie the value is illege.
-              return 0;
-          }
-            break;
-        case SKILL_CMD_TREE_TOP_ON:
-          {
-              UP2P_IO gpio;
-              gpio.pin = 4;
-              gpio.val = 1;
-              log_level(U_LOG_DEBUG,">>>>>> SKILL_CMD_TREE_TOP_ON ");
-              ret = s_cmd_send(CMD_GPIO_WRITE,CMD_GPIO_WRITE_ACK,"0000000C4326605A","0000000000000000",&gpio,
-                      sizeof(UP2P_IO),NULL,&rlen);
-          }
-              break;
-              
-       case SKILL_CMD_TREE_TOP_OFF:
-        {
-              UP2P_IO gpio;
-              gpio.pin = 4;
-              gpio.val = 0;
-              log_level(U_LOG_DEBUG,">>>>>> SKILL_CMD_TREE_TOP_OFF ");
-              ret = s_cmd_send(CMD_GPIO_WRITE,CMD_GPIO_WRITE_ACK,"0000000C4326605A","0000000000000000",&gpio,
-                      sizeof(UP2P_IO),NULL,&rlen);
+    APC_EVA_PACKET *apc_packet = (APC_EVA_PACKET*)umalloc(sizeof(APC_EVA_PACKET)+sizeof(u32));
+    if(!apc_packet){
+        log_level(U_LOG_ERROR,"malloc failt !!");
+        return U_ERROR_NULL;
+    }
+
+    log_level(U_LOG_DEBUG,"cmd = %s\n",p_scmd);
+    
+     p_cmdinfo->cmd = CMD_SEND_SERIAL;
+    apc_packet->version = _PROTO_EVALOG_UART_VERSION;
+    
+    if(str_equal(p_scmd,_EVALOGIK_FUNCTION_TURNON)){
+        apc_packet->cmd = _EVALOG_CMD_ON;
+    }
+    else if(str_equal(p_scmd,_EVALOGIK_FUNCTION_TURNOFF)){
+        apc_packet->cmd = _EVALOG_CMD_OFF;
+    }
+    else if(str_equal(p_scmd,_EVALOGIK_FUNCTION_COLOR_CHANGE)){
+        apc_packet->cmd = _EVALOG_CMD_COLOR_CHANGE;
+    } else if(str_equal(p_scmd,_EVALOGIK_FUNCTION_LIGHTTIME)){
+        int v = json_integer_get(p_ctl_info->j_function,REQUEST_JKEY_FUNC_VALUE);
+        apc_packet->cmd = _EVALOG_CMD_TIMER;
+
+        // 时间 超出限制
+        if(v < 0 && v > 24){
+            ufree(apc_packet);
+            p_cmdinfo->cmd = 0;
+            return U_ERROR_NULL;
         }
-              break;
-        default:
+        
+        apc_packet->len = 1;
+        apc_packet->payload[0]  = (u8)v;
+    } else if(str_equal(p_scmd,_EVALOGIK_FUNCTION_FLASH)){
+        apc_packet->cmd = _EVALOG_CMD_TWINKLE;
+    }
 
-              memset(apc_packet,0,255);
-              apc_packet->version = UART_VERSION;
-              apc_packet->cmd = cmdindex;
-              apc_packet->idx = 0;
-              apc_packet->len = 0;
-              ret = s_cmd_send(CMD_SEND_SERIAL,CMD_SEND_SERIAL_ACK,"0000000C4326605A","0000000000000000",apc_packet,
-                      (sizeof(APC_PACKET) + apc_packet->len ),NULL,&rlen);
-              break;
-      }
-      
-     
-      
-      log_level(U_LOG_DEBUG," SWITCH on ret = %d",ret);
-      
-      return ret;
-
+    p_cmdinfo->p_payload = apc_packet;
+    p_cmdinfo->len_paylod = sizeof(APC_EVA_PACKET) + apc_packet->len;
+    return 0;
 }
 
+int _factory_evalogik_payload_alloc(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_cmdinfo){
 
+    return _christmas_tree_ctl_payload_alloc(p_ctl_info,p_cmdinfo);
+}
 // 1. 解析jason 的function 转换为u32 设备可以理解的形式。
 // 2. 解析 value，并把内容封装到 alloc 的地址里以便发送到设备。
+#if 0
 int _factory_evalogik_payload_alloc(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_cmdinfo){
+
 
     u8 *p_ret_payload = NULL,*p_svalue,*p_scmd;
     
@@ -139,3 +157,4 @@ int _factory_evalogik_payload_alloc(Product_CtlInfo *p_ctl_info,DEV_CmdInfo *p_c
     return U_ERROR_NULL;
 }
 
+#endif

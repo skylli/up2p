@@ -3,7 +3,7 @@
     Copyright 
     All right reserved.
 
-    File: _factory_evalogik_h_.h
+    File: factory_evalogik.h
 
  描述： 1、工厂功能函数实现文件
  注意：
@@ -25,6 +25,11 @@
 
 // 产品的功能定义，该字符应该同数据库中的一致，否则解析不了，功能不可用。
 #define _EVALOGIK_FUNCTION_TURNON "turnOn"
+#define _EVALOGIK_FUNCTION_TURNOFF "turnOff"
+#define _EVALOGIK_FUNCTION_COLOR_CHANGE  "colorChange"
+#define _EVALOGIK_FUNCTION_LIGHTTIME  "lightTime"
+#define _EVALOGIK_FUNCTION_FLASH  "flash"
+
 
 
 /***** 提供给上层的入口，解析并输出控制设备的 payload
