@@ -389,7 +389,9 @@ static int up2pc_recv_cmd(UP2P_PACKET *inpkt, int len, UDP_INFO *info)
             break;
 
         case CMD_SEND_SERIAL:
-            w_debug_level(U_LOG_DEBUG, "payload %s len %d \n",data->payload,data->len);
+            
+            w_debug_level(U_LOG_INFO, " CMD_SEND_SERIALc \n");
+            w_debug_level(U_LOG_INFO, " len %d \n",data->len);
         	// 串口数据
         	serial_write((const char*)data->payload, data->len);
         	// 回应

@@ -41,7 +41,7 @@ int link_request_send(LINK_ST *p_link,u32 cmd,const u8 *data,int len){
 // 3、收到回应会 malloc 和 cpy 回应的数据并输出，所以由外界释放.
 int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int len,u32 resp_cmd,u8 **pp_recv,u32 *p_len_recv,int timeout_ms){
     // pack protocol package
-    int len_send = 0, ret = 0,len_data = 0;
+    int len_send = 0, ret = -1,len_data = 0;
     u8 *p_data = NULL;
     PACKAGE_ST package_recv;
     PRO_UP2P_HEAD *p_pack= NULL;
@@ -55,7 +55,7 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
 
     if( p_pack== NULL){
         log_level(U_LOG_ERROR,"protocol pack failt");
-        return -1;
+        return U_ERROR_NULL;
     }
     
     memset(&package_recv,0,sizeof(PACKAGE_ST));
@@ -66,7 +66,7 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
     if( p_node_event == NULL){
         ufree(p_pack);
         p_pack = NULL;
-        return -1;
+        return U_ERROR_NULL;
     }
 
     // mark current time .
@@ -75,9 +75,10 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
     gettimeofday(&star_tm,NULL);
 
     //star send package.
-    ret = socket_udp_send(p_link->fd,p_pack,len_send,&p_link->info);
+    socket_udp_send(p_link->fd,p_pack,len_send,&p_link->info);
     timeout = (timeout_ms > 0)? timeout_ms:MAX_RERANSMITS_TIMEOUT_ms;
 
+    ret = U_ERROR_RESPON_NON_DEVICEREQPON;
     do{
      // 1.检查事件是否发生。
      // 2. 接收包的目标地址 是否匹配
@@ -115,12 +116,12 @@ int link_request_wait_response(LINK_ST *p_link,u32 req_cmd,const u8 *data,int le
             
                 gettimeofday(&pre_tm,NULL);
                 log_level(U_LOG_DEBUG,"retransmit one time");
-                ret = socket_udp_send(p_link->fd,p_pack,len_send,&p_link->info);
+                socket_udp_send(p_link->fd,p_pack,len_send,&p_link->info);
         }
     }while(_TM_MSEC(current_tm.tv_sec,current_tm.tv_usec) - _TM_MSEC(star_tm.tv_sec,star_tm.tv_usec) < MAX_RERANSMITS_TIMEOUT_ms);
 
     if(p_data && len_data ){
-        log_level(U_LOG_DEBUG,"receive data :  %s len = %d ",p_data,len_data);
+        log_level(U_LOG_DEBUG,"receive data : len = %d ",len_data);
         *pp_recv = p_data;
         *p_len_recv = len_data;
     }

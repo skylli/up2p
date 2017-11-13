@@ -76,10 +76,11 @@ int serial_read(char *data, int len)
 
 int serial_write(const char *data, int len)
 {
-      printf("receive data :\t");
       int i=0;
+      
+      printf("--receive data :\t");
       for(i;i<len;i++){
-        printf("%c",(u8)data[i]);
+        printf("[%x]",data[i]);
 
       }
      printf("\n");

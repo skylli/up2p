@@ -81,6 +81,8 @@ static int _christmas_tree_ctl_payload_alloc(Product_CtlInfo *p_ctl_info,DEV_Cmd
         apc_packet->cmd = _EVALOG_CMD_COLOR_CHANGE;
     } else if(str_equal(p_scmd,_EVALOGIK_FUNCTION_LIGHTTIME)){
         int v = json_integer_get(p_ctl_info->j_function,REQUEST_JKEY_FUNC_VALUE);
+        
+        log_level(U_LOG_DEBUG,"value  = %d\n",v);
         apc_packet->cmd = _EVALOG_CMD_TIMER;
 
         // 时间 超出限制
